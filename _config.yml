@@ -11,4 +11,4 @@ author:
     - label: "ResearchGate"
       url: "https://www.researchgate.net/profile/Tugay-Kacak-2"
 header_pages:
-  - about.md
+  - _pages/about.md
