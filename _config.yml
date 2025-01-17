@@ -10,3 +10,5 @@ author:
       url: "https://www.linkedin.com/in/tugay-kacak-7265921b2/"
     - label: "ResearchGate"
       url: "https://www.researchgate.net/profile/Tugay-Kacak-2"
+header_pages:
+  - about.md
