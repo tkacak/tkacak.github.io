@@ -7,14 +7,15 @@ show_downloads: true
 # Sidebar content (for left block)
 left_block:
   - title: "Profile"
-    content: "PhD Candidate at XYZ University"
+    content: "PhD Candidate at Hacettepe University University"
+    content: "Research Assistant at Trakya University"
   - title: "Research Areas"
-    content: "Statistics, Data Science, Psychometrics"
+    content: "Educational Measurement and Evaluation, Psychometrics"
   - title: "Contact"
     content: 
       - "Email: tugay@example.com"
       - "LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/tugay-kacak-7265921b2/)"
-      - "GitHub: [GitHub Profile](https://github.com/yourusername)"
+      - "GitHub: [GitHub Profile](https://github.com/tkacak)"
 
 # Navigation bar links
 nav_links:
