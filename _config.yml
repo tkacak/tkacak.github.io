@@ -1,5 +1,5 @@
 title: "Tugay KAÇAK's Website"
 description: "Welcome to my personal research page."
-theme: jekyll-theme-merlot
+theme: jekyll-theme-modernist
 # Custom CSS override
 custom_css: "assets/customstyle.css"
