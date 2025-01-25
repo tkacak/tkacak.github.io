@@ -12,7 +12,7 @@ This website is a hub to share updates on my research and projects.
 ## Education
 - **Bachelor's Degree**, Primary School Education, Anadolu University (2021)
 - **Master's Degree**, Educational Measurement and Evaluation, Hacettepe University (2024)
-  - Açımlayıcı Faktör Analizinde Faktör Sayısı Belirleme Yöntemlerinin Çeşitli Koşullar Altında Karşılaştırılması [click to access](https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg)
+  - [Açımlayıcı Faktör Analizinde Faktör Sayısı Belirleme Yöntemlerinin Çeşitli Koşullar Altında Karşılaştırılması](https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg)
 
 ---
 
