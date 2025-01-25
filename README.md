@@ -20,6 +20,8 @@ This website is a hub to share updates on my research and projects.
 - **Master's Degree**, Educational Measurement and Evaluation, Hacettepe University (2024)
   - [Açımlayıcı Faktör Analizinde Faktör Sayısı Belirleme Yöntemlerinin Çeşitli Koşullar Altında Karşılaştırılması](https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg) / Comparison of Factor Retention Methods in Exploratory Factor Analysis Under Various Conditions
 - **PhD Candidate**, Educational Measurement and Evaluation, Hacettepe University (2025)
+
+
 ---
 
 ## Publishes 📚
