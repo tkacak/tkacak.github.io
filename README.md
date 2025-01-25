@@ -17,6 +17,8 @@ Hi, I'm **Tugay KAÇAK**, a PhD Candidate! This website is a hub to share update
 
 ---
 
-## Connect with Me
-- [LinkedIn](https://www.linkedin.com/in/tugay-kacak-7265921b2/)
-- [ResearchGate](https://www.researchgate.net/profile/Tugay-Kacak-2)
+## Connect with Me 🌐
+- 📧 Email: _(kacaktugay@gmail.com)_  
+- 🔗 [LinkedIn](https://www.linkedin.com/in/tugay-kacak-7265921b2/)  
+- 🔬 [ResearchGate](https://www.researchgate.net/profile/Tugay-Kacak-2)  
+- 🐦 [Twitter](https://twitter.com/yourusername)  
