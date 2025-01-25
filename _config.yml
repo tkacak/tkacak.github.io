@@ -2,25 +2,3 @@ title: "Tugay KAÇAK's Website"
 description: "Welcome to my personal research page."
 author: "Tugay KAÇAK"
 theme: jekyll-theme-cayman
-
-# Sidebar content (for left block)
-left_block:
-  - title: "Profile"
-    content: "PhD Candidate at Hacettepe University University"
-    content: "Research Assistant at Trakya University"
-  - title: "Research Areas"
-    content: "Educational Measurement and Evaluation, Psychometrics"
-  - title: "Contact"
-    content: 
-      - "Email: tugay@example.com"
-      - "LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/tugay-kacak-7265921b2/)"
-      - "GitHub: [GitHub Profile](https://github.com/tkacak)"
-
-# Navigation bar links
-nav_links:
-  - title: "Home"
-    url: "/"
-  - title: "About"
-    url: "/about"
-  - title: "Projects"
-    url: "/projects"
