@@ -1,6 +1,6 @@
 # Tugay KAÇAK
 
-Hi, I'm **Tugay KAÇAK**, a PhD Candidate! This website is a hub to share updates on my research and projects.
+This website is a hub to share updates on my research and projects.
 
 ---
 
