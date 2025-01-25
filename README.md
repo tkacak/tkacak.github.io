@@ -5,7 +5,6 @@ This website is a hub to share updates on my research and projects.
 ---
 
 ## Interests
-- Research
 - Educational Measurement and Evaluation
 - Measurement and Psychometrics
 
