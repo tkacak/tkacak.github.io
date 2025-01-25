@@ -2,4 +2,4 @@ title: "Tugay KAÇAK's Website"
 description: "Welcome to my personal research page."
 theme: jekyll-theme-cayman
 # Custom CSS override
-custom_css: "assets/custom-style.css"
+custom_css: "assets/customstyle.css"
