@@ -1,5 +1,3 @@
-# Tugay KAÇAK
-
 ![Photo](img/photo.jpeg)
 
 This website is a hub to share updates on my research and projects.
