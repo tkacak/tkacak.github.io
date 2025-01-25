@@ -12,6 +12,6 @@
 
 /* Reduce space below the description */
 .header p {
-    font-size: 12px;
-    margin-bottom: 10px;
+    font-size: 10px;
+    margin-bottom: 8px;
 }
