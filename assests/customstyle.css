@@ -1,6 +1,6 @@
 /* Narrow the banner height */
 .header {
-    padding: 16px 0;  /* Adjust padding to make it narrower */
+    padding: 6px 0;  /* Adjust padding to make it narrower */
     background: #0366d6;  /* You can customize the background color */
 }
 
