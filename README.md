@@ -2,7 +2,7 @@
 
 📧 [Email](kacaktugay@gmail.com)
 🔗 [Website](https://personel.trakya.edu.tr/tugaykacak/)
-🔗 [LinkedIn](https://www.linkedin.com/in/tugay-kacak-7265921b2/)  
+🔗 [LinkedIn](https://www.linkedin.com/in/tugay-kacak-7265921b2/)
 🔬 [ResearchGate](https://www.researchgate.net/profile/Tugay-Kacak-2)  
 
 This website is a hub to share updates on my research and projects.
