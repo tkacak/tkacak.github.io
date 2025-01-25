@@ -1,5 +1,4 @@
 title: "Tugay KAÇAK's Website"
 description: "Welcome to my personal research page."
-Navigate to:
-- [Page](page.md)
+<a href="page.md"><button>Page</button></a>
 theme: jekyll-theme-cayman
