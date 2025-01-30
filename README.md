@@ -16,6 +16,7 @@ This website is a hub to share updates on my research and projects.
 - Measurement and Psychometrics
 
 ## Education
+
 - **Bachelor's Degree**, Primary School Education, Anadolu University (2021)
 - **Master's Degree**, Educational Measurement and Evaluation, Hacettepe University (2024)
   - [Açımlayıcı Faktör Analizinde Faktör Sayısı Belirleme Yöntemlerinin Çeşitli Koşullar Altında Karşılaştırılması](https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg) / Comparison of Factor Retention Methods in Exploratory Factor Analysis Under Various Conditions
@@ -25,6 +26,7 @@ This website is a hub to share updates on my research and projects.
 
 ## Links
 <p style="text-align: justify;">
+  
 - [Turkish version of Operational Span Test (OST)](https://drive.google.com/file/d/1U4Xer20uTDRi3qkKfRytYu0vaMgz6VSz/view?usp=drive_link)
 
 Note: Please download the HTML file, and good luck!
