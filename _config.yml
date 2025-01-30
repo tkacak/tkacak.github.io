@@ -2,5 +2,5 @@ title: "Tugay KAÇAK's Website"
 description: "Welcome to my personal research page."
 theme: jekyll-theme-cayman
 # Add this line to include your custom CSS
-stylesheets:
+customcss:
   - /assets/css/style.css
