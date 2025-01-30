@@ -28,7 +28,7 @@ This website is a hub to share updates on my research and projects.
 Note: Please download the HTML file, and good luck!
 
 ---
-## Book Chapters
+## Book Chapters 📙
 - **Kaçak, T.** (2024). JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler, İçinde JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (*Installation of JASP, Data Input and Descriptive Statistics, in Statistical Analysis with JASP: A Practical Guide*) (Ed: Acar-Güvendir, M. & Kılıç, A.F.), 1-31, Pegem Akademi 
 
 ## Publishes 📚
@@ -36,7 +36,7 @@ Note: Please download the HTML file, and good luck!
 - **Kaçak, T.**, & Kılıç, A. F. (2024). The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study. Eğitimde ve Psikolojide Ölçme ve Değerlendirme Dergisi, 2, 166-182. https://doi.org/10.21031/epod.1485482
 - Kılıç, A. F., Acar Güvendir, M., Güler, G., & **Kaçak, T.** (2024). Examining the wording effect: What are we measuring? Measurement: Interdisciplinary Research and Perspectives, 1-17. https://doi.org/10.1080/15366367.2024.2329505
 
-## On Peer-Review 
+## On Peer-Review 👁️👁️
 - Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
 - To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
