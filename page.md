@@ -1,1 +1,2 @@
-Öneriler ve eklentiler için lütfen [mail](kacaktugay@gmail.com) atınız.
+Öneriler ve eklentiler için lütfen mail atınız.
+**kacaktugay@gmail.com**
