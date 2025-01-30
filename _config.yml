@@ -1,5 +1,5 @@
 title: "Tugay KAÇAK's Website"
 description: "Welcome to my personal research page."
-theme: jekyll-theme-cayman
+theme: jekyll-theme-primer
 stylesheets:
   - /assets/css/style.css
