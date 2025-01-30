@@ -47,7 +47,3 @@ Note: Please download the HTML file, and good luck!
   - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
   - Journal: [Measurement and Evaluation in Counseling and Development](https://www.tandfonline.com/journal/uecd20)
-
-
-
-![Photo](img/189096067.jpeg)
