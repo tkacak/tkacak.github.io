@@ -50,4 +50,4 @@ Note: Please download the HTML file, and good luck!
 
 
 
-![Photo](https://github.com/tkacak/tkacak.github.io/blob/main/img/189096067.jpeg)
+![Photo](img/189096067.jpeg)
