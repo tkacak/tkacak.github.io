@@ -23,6 +23,8 @@ This website is a hub to share updates on my research and projects.
 
 
 ---
+## Book Chapters
+- **Kaçak, T.** (2024). JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler, İçinde JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (*Installation of JASP, Data Input and Descriptive Statistics, in Statistical Analysis with JASP: A Practical Guide*) (Ed: Acar-Güvendir, M. & Kılıç, A.F.), 1-31, Pegem Akademi 
 
 ## Publishes 📚
 - **Kaçak, T.**, & Kılıç, A. F. (2025). Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option?. International Journal of Assessment Tools in Education, 12(1), 113-130. https://doi.org/10.21449/ijate.1481201
