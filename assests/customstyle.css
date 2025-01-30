@@ -23,7 +23,7 @@
 }
 
 /* Minimize header spacing on smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 540px) {
     .header {
         padding: 3px 0;
     }
