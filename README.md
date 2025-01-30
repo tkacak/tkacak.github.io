@@ -21,6 +21,10 @@ This website is a hub to share updates on my research and projects.
   - [Açımlayıcı Faktör Analizinde Faktör Sayısı Belirleme Yöntemlerinin Çeşitli Koşullar Altında Karşılaştırılması](https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg) / Comparison of Factor Retention Methods in Exploratory Factor Analysis Under Various Conditions
 - **PhD Candidate**, Educational Measurement and Evaluation, Hacettepe University (2025)
 
+---
+## Links
+- [Turkish version of Operational Span Test (OST)](https://drive.google.com/file/d/1U4Xer20uTDRi3qkKfRytYu0vaMgz6VSz/view?usp=drive_link) 
+Note: Please download the HTML file, and good luck!
 
 ---
 ## Book Chapters
