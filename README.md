@@ -1,6 +1,6 @@
 <a href="page.md"><button>Oneriler</button></a>
 
-![Photo](img/photo.png) ![Photo](img/189096067.jpeg)
+![Photo](img/photo.png) 
 
 📧 [Email](kacaktugay@gmail.com)
 🔗 [Website](https://personel.trakya.edu.tr/tugaykacak/)
@@ -47,3 +47,7 @@ Note: Please download the HTML file, and good luck!
   - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
   - Journal: [Measurement and Evaluation in Counseling and Development](https://www.tandfonline.com/journal/uecd20)
+
+
+
+![Photo](https://github.com/tkacak/tkacak.github.io/blob/main/img/189096067.jpeg)
