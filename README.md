@@ -31,11 +31,11 @@ This website is a hub to share updates on my research and projects.
 
 ## On Peer-Review 
 - Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks,
-  - Journal: (Psychology in Schools)[https://onlinelibrary.wiley.com/journal/15206807] 
+  - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
 - To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
-  - Journal:  (Chinese/English Journal of Educational Measurement and Evaluation)[https://www.ce-jeme.org/journal/]
+  - Journal:  [Chinese/English Journal of Educational Measurement and Evaluation](https://www.ce-jeme.org/journal/)
 - The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis (with Asst. Prof. Mustafa Zeki AYDOĞDU, Assoc. Prof. Tuğba TÜRK KURTÇA, Assoc. Prof. Abdullah Faruk KILIÇ)
-  - Journal: (Sakarya University Journal of Education)[https://dergipark.org.tr/en/pub/suje]
+  - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
-  - Journal: (Measurement and Evaluation in Counseling and Development)[https://www.tandfonline.com/journal/uecd20]
+  - Journal: [Measurement and Evaluation in Counseling and Development](https://www.tandfonline.com/journal/uecd20)
    
