@@ -1,6 +1,6 @@
 <a href="page.md"><button>Oneriler</button></a>
 
-![Photo](img/photo.png)
+![Photo](img/photo.png) ![Photo](img/189096067.jpeg)
 
 📧 [Email](kacaktugay@gmail.com)
 🔗 [Website](https://personel.trakya.edu.tr/tugaykacak/)
