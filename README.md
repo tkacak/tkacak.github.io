@@ -1,4 +1,4 @@
-<a href="page.md"><button>Page</button></a>
+<a href="page.md"><button>Oneriler</button></a>
 
 ![Photo](img/photo.jpeg)
 
