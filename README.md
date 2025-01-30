@@ -30,7 +30,7 @@ This website is a hub to share updates on my research and projects.
 - Kılıç, A. F., Acar Güvendir, M., Güler, G., & **Kaçak, T.** (2024). Examining the wording effect: What are we measuring? Measurement: Interdisciplinary Research and Perspectives, 1-17. https://doi.org/10.1080/15366367.2024.2329505
 
 ## On Peer-Review 
-- Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks,
+- Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
 - To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal:  [Chinese/English Journal of Educational Measurement and Evaluation](https://www.ce-jeme.org/journal/)
