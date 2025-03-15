@@ -47,4 +47,4 @@ Note: Please download the HTML file, and good luck!
 - The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis (with Asst. Prof. Mustafa Zeki AYDOĞDU, Assoc. Prof. Tuğba TÜRK KURTÇA, Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
-  - Journal: [Measurement and Evaluation in Counseling and Development](https://www.tandfonline.com/journal/uecd20)
+  - Journal: [Sociological Methods & Research](https://journals.sagepub.com/home/SMR)
