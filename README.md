@@ -39,10 +39,12 @@ Note: Please download the HTML file, and good luck!
 - Kılıç, A. F., Acar Güvendir, M., Güler, G., & **Kaçak, T.** (2024). Examining the wording effect: What are we measuring? Measurement: Interdisciplinary Research and Perspectives, 1-17. https://doi.org/10.1080/15366367.2024.2329505
 - Aydoğdu, M. Z., Kılıç, A. F. & **Kaçak, T.** (2025). Investigation of Mathematics Teacher Candidates' Problem Solving and Problem Posing Abilities: The Mediating Role of Belief and Self-Efficacy (Accepted by [Pamukkale University Journal of Education](https://dergipark.org.tr/en/pub/pauefd))
 
+
 # On Peer-Review 👁️👁️
 - Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
-- To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
+- To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ) - CEJEME
+- Kaçak, T., Temurtaş, A. & Kılıç, A. F. (2025), The Role of Cross-Loadings in Factor Retention: Insights from Monte Carlo Simulations, [Journal of Educational Measurement](https://onlinelibrary.wiley.com/journal/17453984)
   - Journal:  [Chinese/English Journal of Educational Measurement and Evaluation](https://www.ce-jeme.org/journal/)
 - The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis (with Asst. Prof. Mustafa Zeki AYDOĞDU, Assoc. Prof. Tuğba TÜRK KURTÇA, Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
