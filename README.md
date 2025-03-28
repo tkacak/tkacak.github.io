@@ -7,7 +7,9 @@
 🔗 [LinkedIn](https://www.linkedin.com/in/tugay-kacak-7265921b2/)
 🔬 [ResearchGate](https://www.researchgate.net/profile/Tugay-Kacak-2)  
 📕 WoS Researcher ID: MIK-0776-2025
+
 📕 ORCID: https://orcid.org/0000-0002-5319-7148
+
 This website is a hub to share updates on my research and projects.
 
 ---
