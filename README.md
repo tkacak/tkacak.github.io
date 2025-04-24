@@ -45,7 +45,7 @@ Note: Please download the HTML file, and good luck!
 
 # On Peer-Review 👁️👁️
 - Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks
-  - Journal: [Journal of Research in Reading](https://onlinelibrary.wiley.com/journal/14679817) 
+  - Journal: [Educational Assessment](https://onlinelibrary.wiley.com/journal/14679817) 
 - To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal:  [Chinese/English Journal of Educational Measurement and Evaluation](https://www.ce-jeme.org/journal/)
 - Kaçak, T., Temurtaş, A. & Kılıç, A. F. (2025), The Role of Cross-Loadings in Factor Retention Insights from Monte Carlo Simulations
@@ -57,4 +57,4 @@ Note: Please download the HTML file, and good luck!
 - Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
-  - Journal: [Education and Information Technologies](https://link.springer.com/journal/10639) 
+  - Journal: [Psychoeducational Assessment](https://link.springer.com/journal/10639) 
