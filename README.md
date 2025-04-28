@@ -53,8 +53,8 @@ Note: Please download the HTML file, and good luck!
 - The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis (with Asst. Prof. Mustafa Zeki AYDOĞDU, Assoc. Prof. Tuğba TÜRK KURTÇA, Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
-  - Journal: [Sociological Methods & Research](https://journals.sagepub.com/home/SMR)
+  - Journal: [Journal of Personality Assessment](https://journals.sagepub.com/home/SMR)
 - Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
-  - Journal: [Psychoeducational Assessment](https://link.springer.com/journal/10639) 
+  - Journal: [Computers & Education](https://link.springer.com/journal/10639) 
