@@ -57,4 +57,4 @@ Note: Please download the HTML file, and good luck!
 - Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
-  - Journal: [Computers & Education](https://link.springer.com/journal/10639) 
+  - Journal: [International Journal of Testing](https://link.springer.com/journal/10639) 
