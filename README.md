@@ -60,3 +60,5 @@ Note: Please download the HTML file, and good luck!
   - Journal: [International Journal of Testing](https://link.springer.com/journal/10639)
 - Exploratory Bi-factor Analysis with Ordinal Data
   - Journal : MBR
+- Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods
+  - Journal : MBR
