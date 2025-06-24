@@ -61,5 +61,7 @@ Note: Please download the HTML file, and good luck!
   - Journal: [International Journal of Testing](https://link.springer.com/journal/10639)
 - Exploratory Bi-factor Analysis with Ordinal Data
   - Journal : MBR
-- Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods
+- Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods (with. Asst. Prof. Mehtap Aktaş)
   - Journal : The Experimental Education
+-  TO WHAT EXTENT DO INTER-FACTOR CORRELA-TIONS AFFECT THE PERFORMANCE OF FACTOR RETENTION METHOD (with Assoc. Prof. Abdullah Faruk Kılıç)
+  - Testing, Psychometrics and Methodology in  Applied Psychology    
