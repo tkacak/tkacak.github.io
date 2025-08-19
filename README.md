@@ -36,7 +36,7 @@ Note: Please download the HTML file, and good luck!
 # Book Chapters 📙 
 - **Kaçak, T.** (2024). JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler, İçinde JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (*Installation of JASP, Data Input and Descriptive Statistics, in Statistical Analysis with JASP: A Practical Guide*) (Ed: Acar-Güvendir, M. & Kılıç, A.F.), 1-31, Pegem Akademi
 - **Kaçak, T.** (2025). JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler, İçinde JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (2. baskı) (*Installation of JASP, Data Input and Descriptive Statistics, in Statistical Analysis with JASP: A Practical Guide*, 2nd. ed.) (Ed: Acar-Güvendir, M. & Kılıç, A.F.), 1-31, Pegem Akademi
-- **Kaçak, T.** (2025). İlk Okuma ve Yazma Öğretiminde Ölçme ve Değerlendirme, İçinde 2024 Türkiye Yüzyılı Maarif Modeli Öğretim Programına Uygun İlk Okuma Yazma Öğretimi, (Ed: Coşkun, İ & Kadıoğlu-Ateş, H.). Vizetek Yayıncılık
+- **Kaçak, T.** (2025). İlk Okuma ve Yazma Öğretiminde Ölçme ve Değerlendirme, İçinde 2024 Türkiye Yüzyılı Maarif Modeli Öğretim Programına Uygun İlk Okuma Yazma Öğretimi, (Ed: Coşkun, İ & Kadıoğlu-Ateş, H.). 247- 274, Vizetek Yayıncılık
 
 # Publishes 📚 
 - **Kaçak, T.**, & Kılıç, A. F. (2025). Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option?. International Journal of Assessment Tools in Education, 12(1), 113-130. https://doi.org/10.21449/ijate.1481201
