@@ -43,7 +43,8 @@ Note: Please download the HTML file, and good luck!
 - **Kaçak, T.**, & Kılıç, A. F. (2024). The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study. Eğitimde ve Psikolojide Ölçme ve Değerlendirme Dergisi, 2, 166-182. https://doi.org/10.21031/epod.1485482
 - Kılıç, A. F., Acar Güvendir, M., Güler, G., & **Kaçak, T.** (2024). Examining the wording effect: What are we measuring? Measurement: Interdisciplinary Research and Perspectives, 1-17. https://doi.org/10.1080/15366367.2024.2329505
 - Aydoğdu, M. Z., Kılıç, A. F. & **Kaçak, T.** (2025). Investigation of Mathematics Teacher Candidates' Problem Solving and Problem Posing Abilities: The Mediating Role of Belief and Self-Efficacy (Accepted by [Pamukkale University Journal of Education](https://dergipark.org.tr/en/pub/pauefd))
-
+- The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis (with Asst. Prof. Mustafa Zeki AYDOĞDU, Assoc. Prof. Tuğba TÜRK KURTÇA, Assoc. Prof. Abdullah Faruk KILIÇ)
+  - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
 
 # On Peer-Review 👁️👁️
 - Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks
@@ -52,16 +53,14 @@ Note: Please download the HTML file, and good luck!
   - Journal:  [Testing, Psychometrics and Methodology in  Applied Psychology](https://www.ce-jeme.org/journal/)
 - Kaçak, T., Temurtaş, A. & Kılıç, A. F. (2025), The Role of Cross-Loadings in Factor Retention Insights from Monte Carlo Simulations
   - Journal : [Psihologija](https://www.dps.org.rs/en/psihologija-journal/)
-- The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis (with Asst. Prof. Mustafa Zeki AYDOĞDU, Assoc. Prof. Tuğba TÜRK KURTÇA, Assoc. Prof. Abdullah Faruk KILIÇ)
-  - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
-  - Journal: [Educational Methods & Psychometrics](https://emp-open.de/)
+  - Journal: [Educational Methods & Psychometrics](https://emp-open.de/) 
 - Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
-  - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) 
+  - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) - Rejected
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
   - Journal: [International Journal of Testing](https://link.springer.com/journal/10639)
 - Exploratory Bi-factor Analysis with Ordinal Data
-  - Journal : MBR
+  - Journal : MBR - Rejected, updating
 - Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods (with. Asst. Prof. Mehtap Aktaş)
   - Journal : The Experimental Education
 - The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
