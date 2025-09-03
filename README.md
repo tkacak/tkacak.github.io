@@ -66,3 +66,5 @@ Note: Please download the HTML file, and good luck!
   - Journal : The Experimental Education
 - The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
   - Journal : Journal of Survey Statistics and Methodology
+- Does Item Wording Effect Change the Psychometric Properties of a Scale? An Investigation with the Warwick-Edinburg Mental Well-Being Scale (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
+  - Journal : Journal of Survey Statistics and Methodology
