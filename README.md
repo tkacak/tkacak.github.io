@@ -1,5 +1,5 @@
 <a href="page.md"><button>Oneriler</button></a>
-
+<a href="page.md"><button>Course Notes (MSc and PhD) </button></a>
 ![Photo](img/photo.png) 
 
 📧 [Email](kacaktugay@gmail.com)
