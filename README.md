@@ -52,9 +52,13 @@ Note: Please download the HTML file, and good luck!
 - Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks
   - Journal: --
 - To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
-  - Journal:  Applied Psychological Measurement
+  - Journal:  Behavioral Research Methods
+- Structing Psychopathology: A Stress-Test of Factor Retention Methods in Complex Hierarchical Methods (with Assoc. Prof. Abdullah Faruk KILIÇ)
+  - Journal:  Assessment
+- Comparison of Factor Retention Methods: Is Exploratory Graph Analysis Suitable for Mixed-Format Data (with Assoc. Prof. Abdullah Faruk KILIÇ and Prof. Dr. Nuri DOĞAN)
+  - Journal: Methodology (also as virtual poster in AERA25)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
-  - Journal: [Educational Methods & Psychometrics](https://emp-open.de/) 
+  - Journal: ---
 - Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) - Rejected
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
