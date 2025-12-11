@@ -62,7 +62,7 @@ Note: Please download the HTML file, and good luck!
 - Exploratory Bi-factor Analysis with Ordinal Data
   - Journal : Journal of Measurement and Evaluation in Education and Psychology
 - Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods (with. Asst. Prof. Mehtap Aktaş)
-  - Journal : The Experimental Education
+  - Journal : SAGE Open
 - The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
   - Journal : Journal of Survey Statistics and Methodology
 - Does Item Wording Effect Change the Psychometric Properties of a Scale? An Investigation with the Warwick-Edinburg Mental Well-Being Scale (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
