@@ -1,1 +1,1 @@
-
+- [OLC733 and OLC731 - Statistical Programming with R / Psychometrics with R](https://rpubs.com/tugaykacak)
