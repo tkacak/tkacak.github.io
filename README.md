@@ -60,7 +60,7 @@ Note: Please download the HTML file, and good luck!
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
   - Journal: [International Journal of Testing](https://link.springer.com/journal/10639)
 - Exploratory Bi-factor Analysis with Ordinal Data
-  - Journal : MBR - Rejected, updating
+  - Journal : Journal of Measurement and Evaluation in Education and Psychology
 - Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods (with. Asst. Prof. Mehtap Aktaş)
   - Journal : The Experimental Education
 - The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
