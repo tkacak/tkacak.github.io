@@ -1,6 +1,6 @@
 <a href="page.md"><button>Oneriler</button></a>
 
-<a href="page.md"><button>Course Notes (MSc and PhD) </button></a>
+<a href="course_notes.md"><button>Course Notes (MSc and PhD) </button></a>
 
 ![Photo](img/photo.png) 
 
