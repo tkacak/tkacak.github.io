@@ -62,7 +62,7 @@ Note: Please download the HTML file, and good luck!
 - Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
   - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) - Rejected
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
-  - Journal: [International Journal of Testing](https://link.springer.com/journal/10639)
+  - Journal: ---
 - Exploratory Bi-factor Analysis with Ordinal Data
   - Journal : Journal of Measurement and Evaluation in Education and Psychology
 - Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods (with. Asst. Prof. Mehtap Aktaş)
