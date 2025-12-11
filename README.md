@@ -39,6 +39,8 @@ Note: Please download the HTML file, and good luck!
 - **Kaçak, T.** (2025). İlk Okuma ve Yazma Öğretiminde Ölçme ve Değerlendirme, İçinde 2024 Türkiye Yüzyılı Maarif Modeli Öğretim Programına Uygun İlk Okuma Yazma Öğretimi, (Ed: Coşkun, İ & Kadıoğlu-Ateş, H.). 247- 274, Vizetek Yayıncılık
 
 # Publishes 📚 
+- **Kaçak, T.**, Temurtaş, A. & Kılıç, A. F. (2025), The Role of Cross-Loadings in Factor Retention Insights from Monte Carlo Simulations
+  - Journal : [Psihologija](https://www.dps.org.rs/en/psihologija-journal/)
 - **Kaçak, T.**, & Kılıç, A. F. (2025). Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option?. International Journal of Assessment Tools in Education, 12(1), 113-130. https://doi.org/10.21449/ijate.1481201
 - **Kaçak, T.**, & Kılıç, A. F. (2024). The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study. Eğitimde ve Psikolojide Ölçme ve Değerlendirme Dergisi, 2, 166-182. https://doi.org/10.21031/epod.1485482
 - Kılıç, A. F., Acar Güvendir, M., Güler, G., & **Kaçak, T.** (2024). Examining the wording effect: What are we measuring? Measurement: Interdisciplinary Research and Perspectives, 1-17. https://doi.org/10.1080/15366367.2024.2329505
@@ -51,8 +53,6 @@ Note: Please download the HTML file, and good luck!
   - Journal: [Educational Assessment](https://onlinelibrary.wiley.com/journal/14679817) 
 - To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal:  [Testing, Psychometrics and Methodology in  Applied Psychology](https://www.ce-jeme.org/journal/)
-- Kaçak, T., Temurtaş, A. & Kılıç, A. F. (2025), The Role of Cross-Loadings in Factor Retention Insights from Monte Carlo Simulations
-  - Journal : [Psihologija](https://www.dps.org.rs/en/psihologija-journal/)
 - Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods
   - Journal: [Educational Methods & Psychometrics](https://emp-open.de/) 
 - Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
