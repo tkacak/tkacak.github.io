@@ -2,7 +2,7 @@
 
 <a href="course_notes.md"><button>Course Notes (MSc and PhD) </button></a>
 
-![Photo](img/WhatsApp%20Image%202026-02-02%20at%2000.24.52-Photoroom.png)
+<img src="img/WhatsApp%20Image%202026-02-02%20at%2000.24.52-Photoroom.png" width="200">
 
 📧 [Email](kacaktugay@gmail.com)
 🔗 [Website](https://personel.trakya.edu.tr/tugaykacak/)
