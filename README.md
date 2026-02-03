@@ -49,12 +49,14 @@ Note: Please download the HTML file, and good luck!
 - Aydoğdu, M. Z., Kılıç, A. F. & **Kaçak, T.** (2025). Investigation of Mathematics Teacher Candidates' Problem Solving and Problem Posing Abilities: The Mediating Role of Belief and Self-Efficacy (Accepted by [Pamukkale University Journal of Education](https://dergipark.org.tr/en/pub/pauefd))
 - The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis (with Asst. Prof. Mustafa Zeki AYDOĞDU, Assoc. Prof. Tuğba TÜRK KURTÇA, Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal: [Sakarya University Journal of Education](https://dergipark.org.tr/en/pub/suje)
+- Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
+  - Journal: Journal of Teacher Education and Lifelong Learning (Accepted)
 
 # On Peer-Review 👁️👁️
 - Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks
   - Journal: --
 - To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances (with Assoc. Prof. Abdullah Faruk KILIÇ)
-  - Journal:  Behavioral Research Methods
+  - Journal: --
 - Structing Psychopathology: A Stress-Test of Factor Retention Methods in Complex Hierarchical Methods (with Assoc. Prof. Abdullah Faruk KILIÇ)
   - Journal:  Assessment
 - Comparison of Factor Retention Methods: Is Exploratory Graph Analysis Suitable for Mixed-Format Data (with Assoc. Prof. Abdullah Faruk KILIÇ and Prof. Dr. Nuri DOĞAN)
@@ -63,15 +65,13 @@ Note: Please download the HTML file, and good luck!
   - Journal: ---
 - The Impact of Correlated Erros on Reliability Coefficients (with Assoc. Prof. Dr. Abdullah Faruk KILIÇ)
   - Journal: Applied Measurement in Education
-- Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022 (with Res. Asst. Gizem EKİCİ)
-  - Journal: [Psychology in Schools](https://onlinelibrary.wiley.com/journal/15206807) - Rejected
 - Evaluating measurement invariance of students’ positive and negative beliefs towards ICT in ICILS2023: MGCFA and Alignment Optimization approach
   - Journal: ---
 - Exploratory Bi-factor Analysis with Ordinal Data
-  - Journal : Journal of Measurement and Evaluation in Education and Psychology
+  - Journal : Journal of Measurement and Evaluation in Education and Psychology (Revision)
 - Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods (with. Asst. Prof. Mehtap Aktaş)
-  - Journal : SAGE Open
+  - Journal : --
 - The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
-  - Journal : Journal of Survey Statistics and Methodology
+  - Journal : Current Psychology
 - Does Item Wording Effect Change the Psychometric Properties of a Scale? An Investigation with the Warwick-Edinburg Mental Well-Being Scale (with. Assoc. Prof. Gül Güler, Prof. Dr. Meltem Acar Güvendir, Assoc. Prof. Abdullah Faruk Kılıç, Asst. Prof. Mehtap Aktaş)
-  - Journal : Journal of Survey Statistics and Methodology
+  - Journal : Journal of Survey Statistics and Methodology (Major)
