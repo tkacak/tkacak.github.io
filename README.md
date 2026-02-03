@@ -12,7 +12,7 @@
 
 📕 ORCID: https://orcid.org/0000-0002-5319-7148
 
-This website is a hub to share updates on my research and projects.
+This website is a hub to share updates on my research and projects.   I am a PhD candidate in Educational Measurement and Evaluation at Hacettepe University. My research focuses on psychometrics, factor analysis methods, and educational assessment.
 
 ---
 
