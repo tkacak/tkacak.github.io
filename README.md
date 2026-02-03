@@ -1,517 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugay Kaçak - Educational Measurement and Evaluation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        /* Header Section */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 40px 30px 40px;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid white;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        
-        .header-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .header-text h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .header-text .title {
-            font-size: 1.2em;
-            opacity: 0.95;
-            margin-bottom: 20px;
-        }
-        
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            background-color: rgba(255,255,255,0.2);
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-size: 0.9em;
-        }
-        
-        .contact-links a:hover {
-            background-color: rgba(255,255,255,0.3);
-        }
-        
-        /* Main Content */
-        main {
-            padding: 40px;
-        }
-        
-        section {
-            margin-bottom: 40px;
-        }
-        
-        h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        h3 {
-            color: #764ba2;
-            font-size: 1.3em;
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        
-        /* Interests & Education */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .interests-box, .education-box {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .interests-box ul, .education-box ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .interests-box li, .education-box li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .interests-box li:before {
-            content: "🎯";
-            position: absolute;
-            left: 0;
-        }
-        
-        .education-box li:before {
-            content: "🎓";
-            position: absolute;
-            left: 0;
-        }
-        
-        .education-box .degree {
-            font-weight: 600;
-            color: #667eea;
-        }
-        
-        .education-box .institution {
-            color: #666;
-            font-size: 0.95em;
-        }
-        
-        .education-box .thesis-link {
-            display: block;
-            margin-top: 5px;
-            font-size: 0.9em;
-            color: #764ba2;
-            text-decoration: none;
-        }
-        
-        .education-box .thesis-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* Publications */
-        .publication-item {
-            padding: 15px;
-            margin-bottom: 15px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
-        }
-        
-        .publication-item.under-review {
-            border-left-color: #ffa500;
-        }
-        
-        .publication-item.chapter {
-            border-left-color: #28a745;
-        }
-        
-        .publication-item .authors {
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .publication-item .title {
-            color: #555;
-            margin: 5px 0;
-        }
-        
-        .publication-item .journal {
-            color: #764ba2;
-            font-style: italic;
-            font-size: 0.95em;
-        }
-        
-        .publication-item .doi {
-            color: #667eea;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-        
-        .publication-item .doi:hover {
-            text-decoration: underline;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-        
-        .status-badge.accepted {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-badge.review {
-            background-color: #fff3cd;
-            color: #856404;
-        }
-        
-        /* Resources Section */
-        .resource-box {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border: 2px solid #667eea;
-        }
-        
-        .resource-box a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .resource-box a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .header-text h1 {
-                font-size: 2em;
-            }
-            
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-            
-            main {
-                padding: 20px;
-            }
-            
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="header-content">
-                <img src="img/WhatsApp%20Image%202026-02-02%20at%2000.24.52-Photoroom.png" alt="Tugay Kaçak" class="profile-photo">
-                <div class="header-text">
-                    <h1>Tugay Kaçak</h1>
-                    <p class="title">PhD Candidate | Educational Measurement and Evaluation</p>
-                    <p style="font-size: 0.95em; line-height: 1.8;">Hacettepe University, Ankara, Turkey</p>
-                    <div class="contact-links">
-                        <a href="mailto:kacaktugay@gmail.com">📧 Email</a>
-                        <a href="https://personel.trakya.edu.tr/tugaykacak/" target="_blank">🔗 University Profile</a>
-                        <a href="https://www.linkedin.com/in/tugay-kacak-7265921b2/" target="_blank">🔗 LinkedIn</a>
-                        <a href="https://www.researchgate.net/profile/Tugay-Kacak-2" target="_blank">🔬 ResearchGate</a>
-                        <a href="https://orcid.org/0000-0002-5319-7148" target="_blank">📕 ORCID</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+# Tugay Kaçak
 
-        <!-- Main Content -->
-        <main>
-            <!-- About Section -->
-            <section class="about">
-                <p style="font-size: 1.1em; line-height: 1.8;">
-                    I am a PhD candidate in Educational Measurement and Evaluation at Hacettepe University. My research focuses on psychometrics, factor analysis methods, exploratory factor analysis, and educational assessment. I am particularly interested in developing and validating measurement instruments and exploring methodological issues in educational research.
-                </p>
-            </section>
+<img src="img/profile-photo.png" width="200" alt="Tugay Kaçak" style="border-radius: 50%;">
 
-            <!-- Interests & Education in Two Columns -->
-            <div class="two-column">
-                <div class="interests-box">
-                    <h2 style="font-size: 1.5em; border-bottom: 2px solid #667eea;">Research Interests</h2>
-                    <ul>
-                        <li>Educational Measurement and Evaluation</li>
-                        <li>Measurement and Psychometrics</li>
-                        <li>Factor Analysis Methods</li>
-                        <li>Educational Assessment</li>
-                    </ul>
-                </div>
+**PhD Candidate | Educational Measurement and Evaluation**  
+Hacettepe University, Ankara, Turkey
 
-                <div class="education-box">
-                    <h2 style="font-size: 1.5em; border-bottom: 2px solid #667eea;">Education</h2>
-                    <ul>
-                        <li>
-                            <span class="degree">PhD Candidate</span> (2025 - Present)<br>
-                            <span class="institution">Educational Measurement and Evaluation, Hacettepe University</span>
-                        </li>
-                        <li>
-                            <span class="degree">Master's Degree</span> (2024)<br>
-                            <span class="institution">Educational Measurement and Evaluation, Hacettepe University</span><br>
-                            <a href="https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg" target="_blank" class="thesis-link">📄 Thesis: Comparison of Factor Retention Methods in Exploratory Factor Analysis Under Various Conditions</a>
-                        </li>
-                        <li>
-                            <span class="degree">Bachelor's Degree</span> (2021)<br>
-                            <span class="institution">Primary School Education, Anadolu University</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+---
 
-            <!-- Publications Section -->
-            <section>
-                <h2>📚 Publications</h2>
-                
-                <h3>Peer-Reviewed Journal Articles</h3>
-                
-                <div class="publication-item">
-                    <p class="authors"><strong>Kaçak, T.</strong>, Temurtaş, A., & Kılıç, A. F. (2025)</p>
-                    <p class="title">The Role of Cross-Loadings in Factor Retention: Insights from Monte Carlo Simulations</p>
-                    <p class="journal">Psihologija</p>
-                    <a href="https://doi.org/10.2298/PSI250410050K" target="_blank" class="doi">https://doi.org/10.2298/PSI250410050K</a>
-                </div>
+## 📧 Contact & Links
 
-                <div class="publication-item">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F. (2025)</p>
-                    <p class="title">Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option?</p>
-                    <p class="journal">International Journal of Assessment Tools in Education, 12(1), 113-130</p>
-                    <a href="https://doi.org/10.21449/ijate.1481201" target="_blank" class="doi">https://doi.org/10.21449/ijate.1481201</a>
-                </div>
+- **Email:** [kacaktugay@gmail.com](mailto:kacaktugay@gmail.com)
+- **University Profile:** [Trakya University](https://personel.trakya.edu.tr/tugaykacak/)
+- **LinkedIn:** [tugay-kacak-7265921b2](https://www.linkedin.com/in/tugay-kacak-7265921b2/)
+- **ResearchGate:** [Tugay-Kacak-2](https://www.researchgate.net/profile/Tugay-Kacak-2)
+- **ORCID:** [0000-0002-5319-7148](https://orcid.org/0000-0002-5319-7148)
+- **WoS Researcher ID:** MIK-0776-2025
 
-                <div class="publication-item">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F. (2024)</p>
-                    <p class="title">The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study</p>
-                    <p class="journal">Eğitimde ve Psikolojide Ölçme ve Değerlendirme Dergisi, 2, 166-182</p>
-                    <a href="https://doi.org/10.21031/epod.1485482" target="_blank" class="doi">https://doi.org/10.21031/epod.1485482</a>
-                </div>
+---
 
-                <div class="publication-item">
-                    <p class="authors">Kılıç, A. F., Acar Güvendir, M., Güler, G., & <strong>Kaçak, T.</strong> (2024)</p>
-                    <p class="title">Examining the wording effect: What are we measuring?</p>
-                    <p class="journal">Measurement: Interdisciplinary Research and Perspectives, 1-17</p>
-                    <a href="https://doi.org/10.1080/15366367.2024.2329505" target="_blank" class="doi">https://doi.org/10.1080/15366367.2024.2329505</a>
-                </div>
+## 👋 About Me
 
-                <div class="publication-item">
-                    <p class="authors">Aydoğdu, M. Z., Kılıç, A. F., & <strong>Kaçak, T.</strong> (2025)</p>
-                    <p class="title">Investigation of Mathematics Teacher Candidates' Problem Solving and Problem Posing Abilities: The Mediating Role of Belief and Self-Efficacy</p>
-                    <p class="journal">Pamukkale University Journal of Education <span class="status-badge accepted">Accepted</span></p>
-                </div>
+I am a PhD candidate in Educational Measurement and Evaluation at Hacettepe University. My research focuses on psychometrics, factor analysis methods, exploratory factor analysis, and educational assessment. I am particularly interested in developing and validating measurement instruments and exploring methodological issues in educational research.
 
-                <div class="publication-item">
-                    <p class="authors">Aydoğdu, M. Z., Türk Kurtça, T., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis</p>
-                    <p class="journal">Sakarya University Journal of Education <span class="status-badge accepted">Accepted</span></p>
-                </div>
+---
 
-                <div class="publication-item">
-                    <p class="authors">Ekici, G., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022</p>
-                    <p class="journal">Journal of Teacher Education and Lifelong Learning <span class="status-badge accepted">Accepted</span></p>
-                </div>
+## 🎯 Research Interests
 
-                <h3>Book Chapters</h3>
-                
-                <div class="publication-item chapter">
-                    <p class="authors"><strong>Kaçak, T.</strong> (2025)</p>
-                    <p class="title">İlk Okuma ve Yazma Öğretiminde Ölçme ve Değerlendirme</p>
-                    <p class="journal">In: 2024 Türkiye Yüzyılı Maarif Modeli Öğretim Programına Uygun İlk Okuma Yazma Öğretimi (Eds: Coşkun, İ. & Kadıoğlu-Ateş, H.), pp. 247-274. Vizetek Yayıncılık</p>
-                </div>
+- Educational Measurement and Evaluation
+- Measurement and Psychometrics
+- Factor Analysis Methods
+- Educational Assessment
 
-                <div class="publication-item chapter">
-                    <p class="authors"><strong>Kaçak, T.</strong> (2025)</p>
-                    <p class="title">JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler (2nd ed.)</p>
-                    <p class="journal">In: JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (Eds: Acar-Güvendir, M. & Kılıç, A.F.), pp. 1-31. Pegem Akademi</p>
-                </div>
+---
 
-                <div class="publication-item chapter">
-                    <p class="authors"><strong>Kaçak, T.</strong> (2024)</p>
-                    <p class="title">JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler</p>
-                    <p class="journal">In: JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (Eds: Acar-Güvendir, M. & Kılıç, A.F.), pp. 1-31. Pegem Akademi</p>
-                </div>
+## 🎓 Education
 
-                <h3>Under Review</h3>
-                
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks</p>
-                    <p class="journal"><span class="status-badge review">Under Review</span></p>
-                </div>
+**PhD Candidate** (2025 - Present)  
+Educational Measurement and Evaluation, Hacettepe University
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F.</p>
-                    <p class="title">To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances</p>
-                    <p class="journal"><span class="status-badge review">Under Review</span></p>
-                </div>
+**Master's Degree** (2024)  
+Educational Measurement and Evaluation, Hacettepe University  
+📄 *Thesis:* [Comparison of Factor Retention Methods in Exploratory Factor Analysis Under Various Conditions](https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg)
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F.</p>
-                    <p class="title">Structing Psychopathology: A Stress-Test of Factor Retention Methods in Complex Hierarchical Methods</p>
-                    <p class="journal">Assessment <span class="status-badge review">Under Review</span></p>
-                </div>
+**Bachelor's Degree** (2021)  
+Primary School Education, Anadolu University
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, Kılıç, A. F., & Doğan, N.</p>
-                    <p class="title">Comparison of Factor Retention Methods: Is Exploratory Graph Analysis Suitable for Mixed-Format Data</p>
-                    <p class="journal">Methodology <span class="status-badge review">Under Review</span> | Also presented as virtual poster at AERA 2025</p>
-                </div>
+---
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods</p>
-                    <p class="journal"><span class="status-badge review">Under Review</span></p>
-                </div>
+## 📚 Publications
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F.</p>
-                    <p class="title">The Impact of Correlated Errors on Reliability Coefficients</p>
-                    <p class="journal">Applied Measurement in Education <span class="status-badge review">Under Review</span></p>
-                </div>
+### Peer-Reviewed Journal Articles
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Evaluating Measurement Invariance of Students' Positive and Negative Beliefs Towards ICT in ICILS2023: MGCFA and Alignment Optimization Approach</p>
-                    <p class="journal"><span class="status-badge review">Under Review</span></p>
-                </div>
+**Kaçak, T.**, Temurtaş, A., & Kılıç, A. F. (2025). The Role of Cross-Loadings in Factor Retention: Insights from Monte Carlo Simulations. *Psihologija*. [https://doi.org/10.2298/PSI250410050K](https://doi.org/10.2298/PSI250410050K)
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Exploratory Bi-factor Analysis with Ordinal Data</p>
-                    <p class="journal">Journal of Measurement and Evaluation in Education and Psychology <span class="status-badge review">Revision</span></p>
-                </div>
+**Kaçak, T.**, & Kılıç, A. F. (2025). Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option? *International Journal of Assessment Tools in Education*, 12(1), 113-130. [https://doi.org/10.21449/ijate.1481201](https://doi.org/10.21449/ijate.1481201)
 
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Aktaş, M.</p>
-                    <p class="title">Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods</p>
-                    <p class="journal"><span class="status-badge review">Under Review</span></p>
-                </div>
+**Kaçak, T.**, & Kılıç, A. F. (2024). The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study. *Eğitimde ve Psikolojide Ölçme ve Değerlendirme Dergisi*, 2, 166-182. [https://doi.org/10.21031/epod.1485482](https://doi.org/10.21031/epod.1485482)
 
-                <div class="publication-item under-review">
-                    <p class="authors">Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments</p>
-                    <p class="journal">Current Psychology <span class="status-badge review">Under Review</span></p>
-                </div>
+Kılıç, A. F., Acar Güvendir, M., Güler, G., & **Kaçak, T.** (2024). Examining the wording effect: What are we measuring? *Measurement: Interdisciplinary Research and Perspectives*, 1-17. [https://doi.org/10.1080/15366367.2024.2329505](https://doi.org/10.1080/15366367.2024.2329505)
 
-                <div class="publication-item under-review">
-                    <p class="authors">Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">Does Item Wording Effect Change the Psychometric Properties of a Scale? An Investigation with the Warwick-Edinburgh Mental Well-Being Scale</p>
-                    <p class="journal">Journal of Survey Statistics and Methodology <span class="status-badge review">Major Revision</span></p>
-                </div>
-            </section>
+Aydoğdu, M. Z., Kılıç, A. F., & **Kaçak, T.** (2025). Investigation of Mathematics Teacher Candidates' Problem Solving and Problem Posing Abilities: The Mediating Role of Belief and Self-Efficacy. *Pamukkale University Journal of Education*. **[Accepted]**
 
-            <!-- Resources Section -->
-            <section>
-                <h2>🔗 Resources</h2>
-                <div class="resource-box">
-                    <h3 style="margin-top: 0; color: #667eea;">Turkish Version of Operational Span Test (OST)</h3>
-                    <p style="margin-bottom: 10px;">A validated Turkish adaptation of the Operational Span Test for measuring working memory capacity.</p>
-                    <a href="https://drive.google.com/file/d/1U4Xer20uTDRi3qkKfRytYu0vaMgz6VSz/view?usp=drive_link" target="_blank">📥 Download HTML file</a>
-                    <p style="margin-top: 10px; font-size: 0.9em; color: #666;"><em>Note: Please download the HTML file to use. Good luck!</em></p>
-                </div>
-            </section>
-        </main>
+Aydoğdu, M. Z., Türk Kurtça, T., & **Kaçak, T.** The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis. *Sakarya University Journal of Education*. **[Accepted]**
 
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Tugay Kaçak | Educational Measurement and Evaluation</p>
-            <p style="margin-top: 5px; font-size: 0.85em;">WoS Researcher ID: MIK-0776-2025 | ORCID: 0000-0002-5319-7148</p>
-        </footer>
-    </div>
-</body>
-</html>
+Ekici, G., & **Kaçak, T.** Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022. *Journal of Teacher Education and Lifelong Learning*. **[Accepted]**
+
+---
+
+### Book Chapters
+
+**Kaçak, T.** (2025). İlk Okuma ve Yazma Öğretiminde Ölçme ve Değerlendirme. In Coşkun, İ. & Kadıoğlu-Ateş, H. (Eds.), *2024 Türkiye Yüzyılı Maarif Modeli Öğretim Programına Uygun İlk Okuma Yazma Öğretimi* (pp. 247-274). Vizetek Yayıncılık.
+
+**Kaçak, T.** (2025). JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler (2nd ed.). In Acar-Güvendir, M. & Kılıç, A.F. (Eds.), *JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber* (pp. 1-31). Pegem Akademi.
+
+**Kaçak, T.** (2024). JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler. In Acar-Güvendir, M. & Kılıç, A.F. (Eds.), *JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber* (pp. 1-31). Pegem Akademi.
+
+---
+
+### Under Review
+
+**Kaçak, T.** Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks. **[Under Review]**
+
+**Kaçak, T.**, & Kılıç, A. F. To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances. **[Under Review]**
+
+**Kaçak, T.**, & Kılıç, A. F. Structing Psychopathology: A Stress-Test of Factor Retention Methods in Complex Hierarchical Methods. *Assessment*. **[Under Review]**
+
+**Kaçak, T.**, Kılıç, A. F., & Doğan, N. Comparison of Factor Retention Methods: Is Exploratory Graph Analysis Suitable for Mixed-Format Data. *Methodology*. **[Under Review]** | Also presented as virtual poster at AERA 2025
+
+**Kaçak, T.** Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods. **[Under Review]**
+
+**Kaçak, T.**, & Kılıç, A. F. The Impact of Correlated Errors on Reliability Coefficients. *Applied Measurement in Education*. **[Under Review]**
+
+**Kaçak, T.** Evaluating Measurement Invariance of Students' Positive and Negative Beliefs Towards ICT in ICILS2023: MGCFA and Alignment Optimization Approach. **[Under Review]**
+
+**Kaçak, T.** Exploratory Bi-factor Analysis with Ordinal Data. *Journal of Measurement and Evaluation in Education and Psychology*. **[Revision]**
+
+**Kaçak, T.**, & Aktaş, M. Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods. **[Under Review]**
+
+Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., & **Kaçak, T.** The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments. *Current Psychology*. **[Under Review]**
+
+Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., & **Kaçak, T.** Does Item Wording Effect Change the Psychometric Properties of a Scale? An Investigation with the Warwick-Edinburgh Mental Well-Being Scale. *Journal of Survey Statistics and Methodology*. **[Major Revision]**
+
+---
+
+## 🔗 Resources
+
+### Turkish Version of Operational Span Test (OST)
+
+A validated Turkish adaptation of the Operational Span Test for measuring working memory capacity.
+
+**[📥 Download HTML file](https://drive.google.com/file/d/1U4Xer20uTDRi3qkKfRytYu0vaMgz6VSz/view?usp=drive_link)**
+
+*Note: Please download the HTML file to use. Good luck!*
+
+---
+
+## 📊 Academic Metrics
+
+- **WoS Researcher ID:** MIK-0776-2025
+- **ORCID:** 0000-0002-5319-7148
+- **Published Articles:** 7+
+- **Under Review:** 11+
+- **Book Chapters:** 3
+
+---
+
+*Last Updated: February 2026*
