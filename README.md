@@ -1,6 +1,6 @@
 # Tugay Kaçak
 
-<img src="img/profile_photo.png" width="200" alt="Tugay Kaçak" style="border-radius: 50%;">
+<img src="https://github.com/tkacak/tkacak.github.io/blob/main/img/profile_photo" width="200" alt="Tugay Kaçak" style="border-radius: 50%;">
 
 **PhD Candidate | Educational Measurement and Evaluation**  
 Hacettepe University, Ankara, Turkey
