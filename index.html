@@ -1,526 +1,797 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugay Kaçak - Educational Measurement and Evaluation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        /* Header Section */
-        header {
-            background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
-            color: white;
-            padding: 40px 40px 30px 40px;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid white;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        
-        .header-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .header-text h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .header-text .title {
-            font-size: 1.2em;
-            opacity: 0.95;
-            margin-bottom: 20px;
-        }
-        
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            background-color: rgba(255,255,255,0.2);
-            border-radius: 20px;
-            transition: background-color 0.3s;
-            font-size: 0.9em;
-        }
-        
-        .contact-links a:hover {
-            background-color: rgba(255,255,255,0.3);
-        }
-        
-        /* Main Content */
-        main {
-            padding: 40px;
-        }
-        
-        section {
-            margin-bottom: 40px;
-        }
-        
-        h2 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #2c3e50;
-        }
-        
-        h3 {
-            color: #34495e;
-            font-size: 1.3em;
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        
-        /* Interests & Education */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .interests-box, .education-box {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .interests-box ul, .education-box ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .interests-box li, .education-box li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .interests-box li:before {
-            content: "🎯";
-            position: absolute;
-            left: 0;
-        }
-        
-        .education-box li:before {
-            content: "🎓";
-            position: absolute;
-            left: 0;
-        }
-        
-        .education-box .degree {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .education-box .institution {
-            color: #666;
-            font-size: 0.95em;
-        }
-        
-        .education-box .thesis-link {
-            display: block;
-            margin-top: 5px;
-            font-size: 0.9em;
-            color: #34495e;
-            text-decoration: none;
-        }
-        
-        .education-box .thesis-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* Publications */
-        .publication-item {
-            padding: 15px;
-            margin-bottom: 15px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #2c3e50;
-            border-radius: 4px;
-        }
-        
-        .publication-item.under-review {
-            border-left-color: #ffa500;
-        }
-        
-        .publication-item.chapter {
-            border-left-color: #28a745;
-        }
-        
-        .publication-item .authors {
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .publication-item .title {
-            color: #555;
-            margin: 5px 0;
-        }
-        
-        .publication-item .journal {
-            color: #34495e;
-            font-style: italic;
-            font-size: 0.95em;
-        }
-        
-        .publication-item .doi {
-            color: #2c3e50;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-        
-        .publication-item .doi:hover {
-            text-decoration: underline;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-        
-        .status-badge.accepted {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-badge.review {
-            background-color: #fff3cd;
-            color: #856404;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tugay Kaçak — Psychometrics &amp; Educational Measurement</title>
 
-        .status-badge.waiting {
-            background-color: #e2e8f0;
-            color: #4a5568;
-        }
-        
-        /* Resources Section */
-        .resource-box {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border: 2px solid #2c3e50;
-        }
-        
-        .resource-box a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .resource-box a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .header-text h1 {
-                font-size: 2em;
-            }
-            
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-            
-            main {
-                padding: 20px;
-            }
-            
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-        }
-    </style>
+<meta name="description" content="Tugay Kaçak — Research Assistant at Trakya University and PhD candidate at Hacettepe University. Research on psychometrics, factor retention, exploratory factor analysis, reliability and large-scale assessment.">
+<meta name="author" content="Tugay Kaçak">
+<link rel="canonical" href="https://tkacak.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Tugay Kaçak — Psychometrics &amp; Educational Measurement">
+<meta property="og:description" content="Research Assistant (Trakya University) and PhD candidate (Hacettepe University). Factor retention, EFA, reliability, large-scale assessment.">
+<meta property="og:url" content="https://tkacak.github.io/">
+<meta property="og:image" content="https://tkacak.github.io/img/profile_photo.png">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23123B36'/><text x='50' y='68' font-size='54' font-family='Georgia,serif' fill='%23F3F0E9' text-anchor='middle'>TK</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tugay Kaçak",
+  "url": "https://tkacak.github.io/",
+  "image": "https://tkacak.github.io/img/profile_photo.png",
+  "jobTitle": "Research Assistant",
+  "email": "mailto:tugaykacak@trakya.edu.tr",
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Trakya University, Faculty of Education, Department of Educational Sciences"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Hacettepe University" },
+    { "@type": "CollegeOrUniversity", "name": "Anadolu University" }
+  ],
+  "knowsAbout": ["Psychometrics", "Exploratory Factor Analysis", "Factor Retention", "Reliability", "Large-Scale Assessment", "Monte Carlo Simulation"],
+  "identifier": "https://orcid.org/0000-0002-5319-7148",
+  "sameAs": [
+    "https://orcid.org/0000-0002-5319-7148",
+    "https://scholar.google.com/citations?user=-MLgpSEAAAAJ",
+    "https://avesis.trakya.edu.tr/tugaykacak",
+    "https://www.scopus.com/authid/detail.uri?authorId=58979529600",
+    "https://www.researchgate.net/profile/Tugay-Kacak-2",
+    "https://www.linkedin.com/in/tugay-kacak-7265921b2/",
+    "https://github.com/tkacak"
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --paper:#F7F5F0;
+    --card:#FFFFFF;
+    --ink:#16211F;
+    --ink-soft:#5C6866;
+    --line:#E0DDD4;
+    --accent:#123B36;
+    --accent-soft:#E4EDEA;
+    --amber:#9A6B12;
+    --amber-soft:#F6EEDD;
+    --radius:10px;
+    --maxw:1080px;
+  }
+  html[data-theme="dark"]{
+    --paper:#101413;
+    --card:#171D1C;
+    --ink:#E9E7E0;
+    --ink-soft:#9DAAA6;
+    --line:#2A3331;
+    --accent:#7FC8B8;
+    --accent-soft:#1B2A27;
+    --amber:#D6A445;
+    --amber-soft:#2A2415;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  }
+  a{color:inherit}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;z-index:100;background:var(--card);padding:10px 16px;border-radius:6px;border:1px solid var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--paper) 88%,transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;gap:8px;height:60px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .brand{font-family:'Source Serif 4',Georgia,serif;font-weight:700;font-size:1.05rem;margin-right:auto;text-decoration:none;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:4px}
+  .nav-links a{
+    text-decoration:none;font-size:.82rem;font-weight:500;color:var(--ink-soft);
+    padding:7px 11px;border-radius:6px;transition:.15s;white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--ink);background:var(--accent-soft)}
+  .theme-btn{
+    background:none;border:1px solid var(--line);color:var(--ink-soft);
+    width:34px;height:34px;border-radius:8px;cursor:pointer;font-size:.9rem;
+    display:grid;place-items:center;margin-left:8px;transition:.15s;
+  }
+  .theme-btn:hover{border-color:var(--accent);color:var(--ink)}
+  @media (max-width:820px){.nav-links{display:none}}
+
+  /* ---------- Hero ---------- */
+  header{padding:56px 0 44px;border-bottom:1px solid var(--line)}
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start}
+  .photo{
+    width:150px;height:150px;border-radius:14px;object-fit:cover;
+    border:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:10px;
+  }
+  h1{
+    font-family:'Source Serif 4',Georgia,serif;font-weight:700;
+    font-size:clamp(2.1rem,5vw,2.9rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:12px;
+  }
+  .roles{list-style:none;margin-bottom:20px}
+  .roles li{
+    padding-left:16px;position:relative;color:var(--ink-soft);font-size:.95rem;
+  }
+  .roles li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--accent)}
+  .roles strong{color:var(--ink);font-weight:600}
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  .links a{
+    text-decoration:none;font-size:.8rem;font-weight:500;
+    border:1px solid var(--line);background:var(--card);
+    padding:6px 12px;border-radius:100px;transition:.15s;
+  }
+  .links a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+  @media (max-width:700px){
+    .hero{grid-template-columns:1fr;gap:22px}
+    .photo{width:110px;height:110px}
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+  .sec-num{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--accent);letter-spacing:.08em}
+  h2{font-family:'Source Serif 4',Georgia,serif;font-size:1.65rem;font-weight:700;letter-spacing:-.015em}
+  h3{
+    font-family:'IBM Plex Mono',monospace;font-size:.76rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);
+    margin:34px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);
+  }
+  h3:first-of-type{margin-top:0}
+  .lede{font-family:'Source Serif 4',Georgia,serif;font-size:1.14rem;line-height:1.75;max-width:70ch;color:var(--ink)}
+  .lede + .lede{margin-top:14px}
+
+  .grid2{display:grid;grid-template-columns:1fr 1.35fr;gap:32px}
+  @media (max-width:760px){.grid2{grid-template-columns:1fr;gap:26px}}
+
+  .tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none}
+  .tags li{
+    font-size:.82rem;border:1px solid var(--line);background:var(--card);
+    padding:5px 11px;border-radius:6px;
+  }
+
+  .timeline{list-style:none;border-left:1px solid var(--line);padding-left:20px}
+  .timeline li{position:relative;padding-bottom:18px}
+  .timeline li:last-child{padding-bottom:0}
+  .timeline li::before{
+    content:"";position:absolute;left:-24.5px;top:8px;width:8px;height:8px;
+    border-radius:50%;background:var(--paper);border:1.5px solid var(--accent);
+  }
+  .yr{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft)}
+  .deg{font-weight:600;display:block}
+  .inst{color:var(--ink-soft);font-size:.9rem}
+  .sub-link{display:inline-block;margin-top:4px;font-size:.83rem;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+  .sub-link:hover{border-bottom-color:var(--accent)}
+
+  /* ---------- Publications ---------- */
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:22px}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;
+    border:1px solid var(--line);background:var(--card);color:var(--ink-soft);
+    padding:6px 12px;border-radius:100px;cursor:pointer;transition:.15s;
+  }
+  .chip:hover{color:var(--ink);border-color:var(--accent)}
+  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+  html[data-theme="dark"] .chip[aria-pressed="true"]{color:#101413}
+  .search{
+    margin-left:auto;flex:1 1 190px;min-width:170px;max-width:260px;
+    border:1px solid var(--line);background:var(--card);color:var(--ink);
+    padding:7px 12px;border-radius:8px;font-family:inherit;font-size:.83rem;
+  }
+  .search::placeholder{color:var(--ink-soft)}
+
+  .pub{
+    display:grid;grid-template-columns:34px 1fr;gap:14px;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .pub:last-child{border-bottom:0}
+  .idx{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--ink-soft);padding-top:3px}
+  .pub .t{font-family:'Source Serif 4',Georgia,serif;font-size:1.06rem;font-weight:600;line-height:1.4;margin-bottom:5px}
+  .pub .a{font-size:.87rem;color:var(--ink-soft);margin-bottom:4px}
+  .pub .a b{color:var(--ink);font-weight:600}
+  .pub .v{font-size:.85rem;color:var(--ink-soft)}
+  .pub .v em{font-style:italic;color:var(--ink)}
+  .doi{
+    display:inline-block;margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+    color:var(--accent);text-decoration:none;word-break:break-all;
+  }
+  .doi:hover{text-decoration:underline}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.65rem;
+    letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;
+    margin-left:6px;vertical-align:1px;white-space:nowrap;
+  }
+  .b-idx{background:var(--accent-soft);color:var(--accent)}
+  .b-rev{background:var(--amber-soft);color:var(--amber)}
+  .empty{color:var(--ink-soft);font-size:.9rem;padding:18px 0;display:none}
+
+  /* ---------- Cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;transition:.15s;
+  }
+  .card:hover{border-color:var(--accent)}
+  .card h4{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;margin-bottom:6px}
+  .card p{font-size:.88rem;color:var(--ink-soft);margin-bottom:12px}
+  .card a{font-size:.83rem;font-weight:600;color:var(--accent);text-decoration:none}
+  .card a:hover{text-decoration:underline}
+
+  footer{padding:34px 0 44px;color:var(--ink-soft);font-size:.82rem}
+  footer .ids{font-family:'IBM Plex Mono',monospace;font-size:.74rem;margin-top:6px}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="header-content">
-                <img src="img/profile_photo.png" alt="Tugay Kaçak" class="profile-photo">
-                <div class="header-text">
-                    <h1>Tugay Kaçak</h1>
-                    <p class="title">PhD Candidate | Educational Measurement and Evaluation</p>
-                    <p style="font-size: 0.95em; line-height: 1.8;">Hacettepe University, Ankara, Turkey</p>
-                    <div class="contact-links">
-                        <a href="/cdn-cgi/l/email-protection#177c7674767c636270766e57707a767e7b3974787a">📧 Email</a>
-                        <a href="https://personel.trakya.edu.tr/tugaykacak/" target="_blank">🔗 University Profile</a>
-                        <a href="https://www.linkedin.com/in/tugay-kacak-7265921b2/" target="_blank">🔗 LinkedIn</a>
-                        <a href="https://www.researchgate.net/profile/Tugay-Kacak-2" target="_blank">🔬 ResearchGate</a>
-                        <a href="https://orcid.org/0000-0002-5319-7148" target="_blank">📕 ORCID</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+<a class="skip" href="#main">Skip to content</a>
 
-        <!-- Main Content -->
-        <main>
-            <!-- About Section -->
-            <section class="about">
-                <p style="font-size: 1.1em; line-height: 1.8;">
-                    I am a PhD candidate in Educational Measurement and Evaluation at Hacettepe University. My research focuses on psychometrics, factor analysis methods, exploratory factor analysis, and educational assessment. I am particularly interested in developing and validating measurement instruments and exploring methodological issues in educational research.
-                </p>
-            </section>
-
-            <!-- Interests & Education in Two Columns -->
-            <div class="two-column">
-                <div class="interests-box">
-                    <h2 style="font-size: 1.5em; border-bottom: 2px solid #2c3e50;">Research Interests</h2>
-                    <ul>
-                        <li>Educational Measurement and Evaluation</li>
-                        <li>Measurement and Psychometrics</li>
-                        <li>Factor Analysis Methods</li>
-                        <li>Educational Assessment</li>
-                    </ul>
-                </div>
-
-                <div class="education-box">
-                    <h2 style="font-size: 1.5em; border-bottom: 2px solid #2c3e50;">Education</h2>
-                    <ul>
-                        <li>
-                            <span class="degree">PhD Candidate</span> (2025 - Present)<br>
-                            <span class="institution">Educational Measurement and Evaluation, Hacettepe University</span>
-                        </li>
-                        <li>
-                            <span class="degree">Master's Degree</span> (2024)<br>
-                            <span class="institution">Educational Measurement and Evaluation, Hacettepe University</span><br>
-                            <a href="https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg" target="_blank" class="thesis-link">📄 Thesis: Comparison of Factor Retention Methods in Exploratory Factor Analysis Under Various Conditions</a>
-                        </li>
-                        <li>
-                            <span class="degree">Bachelor's Degree</span> (2021)<br>
-                            <span class="institution">Primary School Education, Anadolu University (GPA: 3.51)</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Publications Section -->
-            <section>
-                <h2>📚 Publications</h2>
-                
-                <h3>Peer-Reviewed Journal Articles</h3>
-                
-                <div class="publication-item">
-                    <p class="authors"><strong>Kaçak, T.</strong>, Temurtaş, A., & Kılıç, A. F. (2025)</p>
-                    <p class="title">The Role of Cross-Loadings in Factor Retention: Insights from Monte Carlo Simulations</p>
-                    <p class="journal">Psihologija</p>
-                    <a href="https://doi.org/10.2298/PSI250410050K" target="_blank" class="doi">https://doi.org/10.2298/PSI250410050K</a>
-                </div>
-
-                <div class="publication-item">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F. (2025)</p>
-                    <p class="title">Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option?</p>
-                    <p class="journal">International Journal of Assessment Tools in Education, 12(1), 113-130</p>
-                    <a href="https://doi.org/10.21449/ijate.1481201" target="_blank" class="doi">https://doi.org/10.21449/ijate.1481201</a>
-                </div>
-
-                <div class="publication-item">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F. (2024)</p>
-                    <p class="title">The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study</p>
-                    <p class="journal">Eğitimde ve Psikolojide Ölçme ve Değerlendirme Dergisi, 2, 166-182</p>
-                    <a href="https://doi.org/10.21031/epod.1485482" target="_blank" class="doi">https://doi.org/10.21031/epod.1485482</a>
-                </div>
-
-                <div class="publication-item">
-                    <p class="authors">Kılıç, A. F., Acar Güvendir, M., Güler, G., & <strong>Kaçak, T.</strong> (2024)</p>
-                    <p class="title">Examining the wording effect: What are we measuring?</p>
-                    <p class="journal">Measurement: Interdisciplinary Research and Perspectives, 1-17</p>
-                    <a href="https://doi.org/10.1080/15366367.2024.2329505" target="_blank" class="doi">https://doi.org/10.1080/15366367.2024.2329505</a>
-                </div>
-
-                <div class="publication-item">
-                    <p class="authors">Aydoğdu, M. Z., Kılıç, A. F., & <strong>Kaçak, T.</strong> (2025)</p>
-                    <p class="title">Investigation of Mathematics Teacher Candidates' Problem Solving and Problem Posing Abilities: The Mediating Role of Belief and Self-Efficacy</p>
-                    <p class="journal">Pamukkale University Journal of Education</p>
-                    <a href="https://dergipark.org.tr/tr/pub/pauefd/article/1530235" target="_blank" class="doi">https://dergipark.org.tr/tr/pub/pauefd/article/1530235</a>
-                </div>
-
-                <div class="publication-item">
-                    <p class="authors">Aydoğdu, M. Z., Türk Kurtça, T., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">The Role of Value on Mathematics Between Self-Efficacy and Like Mathematics: A Moderated Mediation Analysis</p>
-                    <p class="journal">Sakarya University Journal of Education</p>
-                    <a href="https://dergipark.org.tr/en/download/article-file/4527113" target="_blank" class="doi">https://dergipark.org.tr/en/download/article-file/4527113</a>
-                </div>
-
-                <div class="publication-item">
-                    <p class="authors">Ekici, G., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">Easing the Burden: How Teacher Self-Efficacy Mediates the Association Between Occupational Stress and Job Satisfaction? International Evidence from PISA2022</p>
-                    <p class="journal">Journal of Teacher Education and Lifelong Learning <span class="status-badge accepted">Accepted</span></p>
-                </div>
-
-                <h3>Book Chapters</h3>
-                
-                <div class="publication-item chapter">
-                    <p class="authors"><strong>Kaçak, T.</strong> (2025)</p>
-                    <p class="title">İlk Okuma ve Yazma Öğretiminde Ölçme ve Değerlendirme</p>
-                    <p class="journal">In: 2024 Türkiye Yüzyılı Maarif Modeli Öğretim Programına Uygun İlk Okuma Yazma Öğretimi (Eds: Coşkun, İ. & Kadıoğlu-Ateş, H.), pp. 247-274. Vizetek Yayıncılık</p>
-                    <a href="https://vizetek.com.tr/urun/2024-Turkiye-Yuzyili-Maarif-Modeli-Ogretim-Programina-Uygun-Ilk-Okuma-Yazma-Ogretimi-794?srsltid=AfmBOor0duc8JoG0PVDdrfEfSyfD_RH6JQs_lKQ3yejXut813ApDtbnH" target="_blank" class="doi">🔗 Publisher Page</a>
-                </div>
-
-                <div class="publication-item chapter">
-                    <p class="authors"><strong>Kaçak, T.</strong> (2025)</p>
-                    <p class="title">JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler (2nd ed.)</p>
-                    <p class="journal">In: JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (Eds: Acar-Güvendir, M. & Kılıç, A.F.), pp. 1-31. Pegem Akademi</p>
-                    <a href="https://pegem.net/urun/JASP-ile-Istatistiksel-Analiz-Uygulamali-Bir-Rehber-299691?srsltid=ARcRdno27vLYZV60lgy_69FHlJf72kjsa3MtsLPRkWRbotnSrYg2_fbk" target="_blank" class="doi">🔗 Publisher Page</a>
-                </div>
-
-                <div class="publication-item chapter">
-                    <p class="authors"><strong>Kaçak, T.</strong> (2024)</p>
-                    <p class="title">JASP'ın Kurulumu, Veri Girişi ve Betimsel İstatistikler</p>
-                    <p class="journal">In: JASP ile İstatiksel Analiz: Uygulamalı Bir Rehber (Eds: Acar-Güvendir, M. & Kılıç, A.F.), pp. 1-31. Pegem Akademi</p>
-                </div>
-
-                <h3>Under Review / Waiting</h3>
-                
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Invariance of Like Reading and Reading Self-Efficacy Scales in PIRLS 2021 Across Subgroups: Evidence from Psychometric Networks</p>
-                    <p class="journal"><span class="status-badge waiting">Waiting</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F.</p>
-                    <p class="title">To What Extent Interfactor Correlations Effect on Factor Retention Methods' Performances</p>
-                    <p class="journal"><span class="status-badge waiting">Waiting</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F.</p>
-                    <p class="title">Structing Psychopathology: A Stress-Test of Factor Retention Methods in Complex Hierarchical Methods</p>
-                    <p class="journal">Assessment <span class="status-badge review">Under Review</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, Kılıç, A. F., & Doğan, N.</p>
-                    <p class="title">Comparison of Factor Retention Methods: Is Exploratory Graph Analysis Suitable for Mixed-Format Data</p>
-                    <p class="journal">Methodology <span class="status-badge review">Under Review</span> | Also presented as virtual poster at AERA 2025</p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Dimensionality Assessment of Ordinal Items with the Combination of Common Factor Retention Methods</p>
-                    <p class="journal"><span class="status-badge waiting">Waiting</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Kılıç, A. F.</p>
-                    <p class="title">The Impact of Correlated Errors on Reliability Coefficients</p>
-                    <p class="journal">Applied Measurement in Education <span class="status-badge review">Under Review</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Evaluating Measurement Invariance of Students' Positive and Negative Beliefs Towards ICT in ICILS2023: MGCFA and Alignment Optimization Approach</p>
-                    <p class="journal">Computers in the Schools <span class="status-badge review">Under Review</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong></p>
-                    <p class="title">Exploratory Bi-factor Analysis with Ordinal Data</p>
-                    <p class="journal">Journal of Measurement and Evaluation in Education and Psychology <span class="status-badge review">Under Review</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors"><strong>Kaçak, T.</strong>, & Aktaş, M.</p>
-                    <p class="title">Q-Matrix Validation in the Presence of Missing Data: A Simulation-Based Comparison of Multiple Imputation Methods</p>
-                    <p class="journal"><span class="status-badge waiting">Waiting</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors">Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">The Differential Impact of Lottery Incentives on Measurement Outcomes in Paper-and-Pencil vs. Online Assessments</p>
-                    <p class="journal">Current Psychology <span class="status-badge review">Under Review</span></p>
-                </div>
-
-                <div class="publication-item under-review">
-                    <p class="authors">Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., & <strong>Kaçak, T.</strong></p>
-                    <p class="title">Does Item Wording Effect Change the Psychometric Properties of a Scale? An Investigation with the Warwick-Edinburgh Mental Well-Being Scale</p>
-                    <p class="journal">Journal of Survey Statistics and Methodology <span class="status-badge review">Major Revision</span></p>
-                </div>
-            </section>
-
-            <!-- Resources Section -->
-            <section>
-                <h2>🔗 Resources</h2>
-                <div class="resource-box">
-                    <h3 style="margin-top: 0; color: #2c3e50;">Turkish Version of Operational Span Test (OST)</h3>
-                    <p style="margin-bottom: 10px;">A validated Turkish adaptation of the Operational Span Test for measuring working memory capacity.</p>
-                    <a href="https://drive.google.com/file/d/1U4Xer20uTDRi3qkKfRytYu0vaMgz6VSz/view?usp=drive_link" target="_blank">📥 Download HTML file</a>
-                    <p style="margin-top: 10px; font-size: 0.9em; color: #666;"><em>Note: Please download the HTML file to use. Good luck!</em></p>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Tugay Kaçak | Educational Measurement and Evaluation</p>
-            <p style="margin-top: 5px; font-size: 0.85em;">WoS Researcher ID: MIK-0776-2025 | ORCID: 0000-0002-5319-7148</p>
-        </footer>
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">Tugay&nbsp;Kaçak</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#background">Background</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#teaching">Teaching &amp; Resources</a>
+      <a href="#contact">Contact</a>
     </div>
+    <button class="theme-btn" id="theme" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+  <header>
+    <div class="hero">
+      <img class="photo" src="img/profile_photo.png" alt="Portrait of Tugay Kaçak" width="150" height="150">
+      <div>
+        <p class="eyebrow">Psychometrics · Educational Measurement</p>
+        <h1>Tugay Kaçak</h1>
+        <ul class="roles">
+          <li><strong>Research Assistant</strong> — Trakya University, Faculty of Education, Department of Educational Sciences (Educational Measurement &amp; Evaluation), Edirne</li>
+          <li><strong>PhD Candidate</strong> — Educational Measurement and Evaluation, Hacettepe University, Ankara</li>
+        </ul>
+        <div class="links">
+          <a href="mailto:tugaykacak@trakya.edu.tr">Email</a>
+          <a href="https://scholar.google.com/citations?user=-MLgpSEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://orcid.org/0000-0002-5319-7148" target="_blank" rel="noopener">ORCID</a>
+          <a href="https://avesis.trakya.edu.tr/tugaykacak" target="_blank" rel="noopener">Avesis</a>
+          <a href="https://www.scopus.com/authid/detail.uri?authorId=58979529600" target="_blank" rel="noopener">Scopus</a>
+          <a href="https://www.webofscience.com/wos/author/record/MIK-0776-2025" target="_blank" rel="noopener">Web of Science</a>
+          <a href="https://www.researchgate.net/profile/Tugay-Kacak-2" target="_blank" rel="noopener">ResearchGate</a>
+          <a href="https://github.com/tkacak" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/tugay-kacak-7265921b2/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://avesis.trakya.edu.tr/tugaykacak/indir?languageCode=en" target="_blank" rel="noopener">CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="sec-head"><span class="sec-num">01</span><h2>About</h2></div>
+      <p class="lede">
+        I work on the methods researchers use to decide how many factors a set of items really measures — and on what happens to those decisions when the data are ordinal, incomplete, hierarchically structured, or full of cross-loadings.
+      </p>
+      <p class="lede">
+        Most of my work is Monte Carlo simulation: factor retention methods, exploratory graph analysis, factor extraction for ordinal indicators, and reliability coefficients under realistic violations of their assumptions. I also work with large-scale assessment data (PISA, PIRLS, TIMSS, ICILS), where I look at measurement invariance and item-format effects across countries.
+      </p>
+    </section>
+
+    <!-- BACKGROUND -->
+    <section id="background">
+      <div class="sec-head"><span class="sec-num">02</span><h2>Background</h2></div>
+      <div class="grid2">
+        <div>
+          <h3>Research interests</h3>
+          <ul class="tags">
+            <li>Factor retention methods</li>
+            <li>Exploratory factor analysis</li>
+            <li>Exploratory graph analysis</li>
+            <li>Monte Carlo simulation</li>
+            <li>Reliability estimation</li>
+            <li>Missing data</li>
+            <li>Measurement invariance</li>
+            <li>Large-scale assessment (PISA, TIMSS, PIRLS, ICILS)</li>
+            <li>R &amp; JASP</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <ul class="timeline">
+            <li>
+              <span class="yr">2025 — present</span>
+              <span class="deg">PhD, Educational Measurement and Evaluation</span>
+              <span class="inst">Hacettepe University, Ankara</span>
+            </li>
+            <li>
+              <span class="yr">2024</span>
+              <span class="deg">MSc, Educational Measurement and Evaluation</span>
+              <span class="inst">Hacettepe University, Ankara</span>
+              <a class="sub-link" href="https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg" target="_blank" rel="noopener">Thesis: Comparison of factor retention methods in EFA under various conditions →</a>
+            </li>
+            <li>
+              <span class="yr">2021</span>
+              <span class="deg">BSc, Primary School Education</span>
+              <span class="inst">Anadolu University (GPA 3.51)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <div class="sec-head"><span class="sec-num">03</span><h2>Publications</h2></div>
+
+      <div class="toolbar">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="article" aria-pressed="false">Journal articles</button>
+        <button class="chip" data-filter="chapter" aria-pressed="false">Book chapters</button>
+        <button class="chip" data-filter="review" aria-pressed="false">In progress</button>
+        <input class="search" id="pubsearch" type="search" placeholder="Filter by keyword…" aria-label="Filter publications by keyword">
+      </div>
+
+      <div id="publist">
+
+        <h3 data-group="article">Peer-reviewed journal articles</h3>
+
+        <article class="pub" data-type="article">
+          <span class="idx">01</span>
+          <div>
+            <p class="t">Bridging minds and machines: A comparative study of AI and human rater agreement and reliability in educational assessment</p>
+            <p class="a">Acar Güvendir, M., Kılıç, A. F., Güvendir, E., &amp; <b>Kaçak, T.</b> (2026)</p>
+            <p class="v"><em>Education and Information Technologies</em><span class="badge b-idx">SSCI · Scopus</span></p>
+            <a class="doi" href="https://doi.org/10.1007/s10639-026-13949-7" target="_blank" rel="noopener">doi.org/10.1007/s10639-026-13949-7</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="article">
+          <span class="idx">02</span>
+          <div>
+            <p class="t">Easing the burden: How does teacher self-efficacy mediate the association between occupational stress and job satisfaction? International evidence from PISA 2022</p>
+            <p class="a">Ekici, G., &amp; <b>Kaçak, T.</b> (2026)</p>
+            <p class="v"><em>Journal of Teacher Education and Lifelong Learning, 8</em>(1), 1–13<span class="badge b-idx">Open access</span></p>
+            <a class="doi" href="https://doi.org/10.51535/tell.1776536" target="_blank" rel="noopener">doi.org/10.51535/tell.1776536</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="article">
+          <span class="idx">03</span>
+          <div>
+            <p class="t">The role of cross-loadings in factor retention with ordinal data: Insights from Monte Carlo simulations</p>
+            <p class="a"><b>Kaçak, T.</b>, Temurtaş, A., &amp; Kılıç, A. F. (2025)</p>
+            <p class="v"><em>Psihologija</em> (online first)<span class="badge b-idx">SSCI · Scopus</span></p>
+            <a class="doi" href="https://doi.org/10.2298/PSI250410050K" target="_blank" rel="noopener">doi.org/10.2298/PSI250410050K</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="article">
+          <span class="idx">04</span>
+          <div>
+            <p class="t">Examining the wording effect: What are we measuring?</p>
+            <p class="a">Kılıç, A. F., Acar Güvendir, M., Güler, G., &amp; <b>Kaçak, T.</b> (2025)</p>
+            <p class="v"><em>Measurement: Interdisciplinary Research and Perspectives, 23</em>(2), 172–188<span class="badge b-idx">ESCI · Scopus</span></p>
+            <a class="doi" href="https://doi.org/10.1080/15366367.2024.2329505" target="_blank" rel="noopener">doi.org/10.1080/15366367.2024.2329505</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="article">
+          <span class="idx">05</span>
+          <div>
+            <p class="t">Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option?</p>
+            <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F. (2025)</p>
+            <p class="v"><em>International Journal of Assessment Tools in Education, 12</em>(1), 113–130<span class="badge b-idx">ESCI · TR Dizin</span></p>
+            <a class="doi" href="https://doi.org/10.21449/ijate.1481201" target="_blank" rel="noopener">doi.org/10.21449/ijate.1481201</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="article">
+          <span class="idx">06</span>
+          <div>
+            <p class="t">Investigation of mathematics teacher candidates' problem solving and problem posing abilities: The mediating role of belief and self-efficacy</p>
+            <p class="a">Aydoğdu, M. Z., Kılıç, A. F., &amp; <b>Kaçak, T.</b> (2025)</p>
+            <p class="v"><em>Pamukkale University Journal of Education</em>, (65)<span class="badge b-idx">ESCI · TR Dizin</span></p>
+            <a class="doi" href="https://doi.org/10.9779/pauefd.1530235" target="_blank" rel="noopener">doi.org/10.9779/pauefd.1530235</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="article">
+          <span class="idx">07</span>
+          <div>
+            <p class="t">The role of value on mathematics between self-efficacy and liking mathematics: A moderated mediation analysis</p>
+            <p class="a">Aydoğdu, M. Z., Türk Kurtça, T., Kılıç, A. F., &amp; <b>Kaçak, T.</b> (2025)</p>
+            <p class="v"><em>Sakarya University Journal of Education, 15</em>(2), 236–251<span class="badge b-idx">TR Dizin</span></p>
+            <a class="doi" href="https://doi.org/10.19126/suje.1621346" target="_blank" rel="noopener">doi.org/10.19126/suje.1621346</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="article">
+          <span class="idx">08</span>
+          <div>
+            <p class="t">The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study</p>
+            <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F. (2024)</p>
+            <p class="v"><em>Journal of Measurement and Evaluation in Education and Psychology, 15</em>(2), 166–182<span class="badge b-idx">ESCI · Scopus · TR Dizin</span></p>
+            <a class="doi" href="https://doi.org/10.21031/epod.1485482" target="_blank" rel="noopener">doi.org/10.21031/epod.1485482</a>
+          </div>
+        </article>
+
+        <h3 data-group="chapter">Book chapters</h3>
+
+        <article class="pub" data-type="chapter">
+          <span class="idx">01</span>
+          <div>
+            <p class="t">İlk okuma ve yazma öğretiminde ölçme ve değerlendirme</p>
+            <p class="a"><b>Kaçak, T.</b> (2025)</p>
+            <p class="v">In İ. Coşkun &amp; H. Kadıoğlu-Ateş (Eds.), <em>2024 Türkiye Yüzyılı Maarif Modeli öğretim programına uygun ilk okuma yazma öğretimi</em> (pp. 247–274). Vizetek Yayıncılık.</p>
+            <a class="doi" href="https://vizetek.com.tr/urun/2024-Turkiye-Yuzyili-Maarif-Modeli-Ogretim-Programina-Uygun-Ilk-Okuma-Yazma-Ogretimi-794" target="_blank" rel="noopener">Publisher page →</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="chapter">
+          <span class="idx">02</span>
+          <div>
+            <p class="t">JASP'ın kurulumu, veri girişi ve betimsel istatistikler (2nd ed.)</p>
+            <p class="a"><b>Kaçak, T.</b> (2025)</p>
+            <p class="v">In M. Acar-Güvendir &amp; A. F. Kılıç (Eds.), <em>JASP ile istatistiksel analiz: Uygulamalı bir rehber</em> (pp. 1–31). Pegem Akademi.</p>
+            <a class="doi" href="https://pegem.net/urun/JASP-ile-Istatistiksel-Analiz-Uygulamali-Bir-Rehber-299691" target="_blank" rel="noopener">Publisher page →</a>
+          </div>
+        </article>
+
+        <article class="pub" data-type="chapter">
+          <span class="idx">03</span>
+          <div>
+            <p class="t">JASP'ın kurulumu, veri girişi ve betimsel istatistikler</p>
+            <p class="a"><b>Kaçak, T.</b> (2024)</p>
+            <p class="v">In M. Acar-Güvendir &amp; A. F. Kılıç (Eds.), <em>JASP ile istatistiksel analiz: Uygulamalı bir rehber</em> (pp. 1–31). Pegem Akademi.</p>
+          </div>
+        </article>
+
+        <h3 data-group="review">Under review &amp; in preparation</h3>
+
+        <article class="pub" data-type="review">
+          <span class="idx">01</span>
+          <div>
+            <p class="t">Structuring psychopathology: A stress-test of factor retention methods in complex hierarchical structures</p>
+            <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F.</p>
+            <p class="v"><em>Assessment</em><span class="badge b-rev">Under review</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">02</span>
+          <div>
+            <p class="t">Comparison of factor retention methods: Is exploratory graph analysis suitable for mixed-format data?</p>
+            <p class="a"><b>Kaçak, T.</b>, Kılıç, A. F., &amp; Doğan, N.</p>
+            <p class="v"><em>Methodology</em><span class="badge b-rev">Under review</span> · Presented at AERA 2025</p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">03</span>
+          <div>
+            <p class="t">The impact of correlated errors on reliability coefficients</p>
+            <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F.</p>
+            <p class="v"><em>Applied Measurement in Education</em><span class="badge b-rev">Under review</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">04</span>
+          <div>
+            <p class="t">Evaluating measurement invariance of students' positive and negative beliefs towards ICT in ICILS 2023: MGCFA and alignment optimization</p>
+            <p class="a"><b>Kaçak, T.</b></p>
+            <p class="v"><em>Computers in the Schools</em><span class="badge b-rev">Under review</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">05</span>
+          <div>
+            <p class="t">Exploratory bi-factor analysis with ordinal data</p>
+            <p class="a"><b>Kaçak, T.</b></p>
+            <p class="v"><em>Journal of Measurement and Evaluation in Education and Psychology</em><span class="badge b-rev">Under review</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">06</span>
+          <div>
+            <p class="t">Does item wording effect change the psychometric properties of a scale? An investigation with the Warwick–Edinburgh Mental Well-Being Scale</p>
+            <p class="a">Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., &amp; <b>Kaçak, T.</b></p>
+            <p class="v"><em>Journal of Survey Statistics and Methodology</em><span class="badge b-rev">Major revision</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">07</span>
+          <div>
+            <p class="t">The differential impact of lottery incentives on measurement outcomes in paper-and-pencil vs. online assessments</p>
+            <p class="a">Güler, G., Acar Güvendir, M., Kılıç, A. F., Aktaş, M., &amp; <b>Kaçak, T.</b></p>
+            <p class="v"><em>Current Psychology</em><span class="badge b-rev">Under review</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">08</span>
+          <div>
+            <p class="t">To what extent do interfactor correlations affect the performance of factor retention methods?</p>
+            <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F.</p>
+            <p class="v"><span class="badge b-rev">In preparation</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">09</span>
+          <div>
+            <p class="t">Invariance of liking reading and reading self-efficacy scales in PIRLS 2021 across subgroups: Evidence from psychometric networks</p>
+            <p class="a"><b>Kaçak, T.</b></p>
+            <p class="v"><span class="badge b-rev">In preparation</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">10</span>
+          <div>
+            <p class="t">Dimensionality assessment of ordinal items with a combination of common factor retention methods</p>
+            <p class="a"><b>Kaçak, T.</b></p>
+            <p class="v"><span class="badge b-rev">In preparation</span></p>
+          </div>
+        </article>
+
+        <article class="pub" data-type="review">
+          <span class="idx">11</span>
+          <div>
+            <p class="t">Q-matrix validation in the presence of missing data: A simulation-based comparison of multiple imputation methods</p>
+            <p class="a"><b>Kaçak, T.</b>, &amp; Aktaş, M.</p>
+            <p class="v"><span class="badge b-rev">In preparation</span></p>
+          </div>
+        </article>
+
+      </div>
+      <p class="empty" id="empty">No publications match that keyword.</p>
+    </section>
+
+    <!-- TALKS -->
+    <section id="talks">
+      <div class="sec-head"><span class="sec-num">04</span><h2>Conference papers</h2></div>
+
+      <h3>2025</h3>
+      <article class="pub">
+        <span class="idx">01</span>
+        <div>
+          <p class="t">Comparison of factor retention methods: Is exploratory graph analysis appropriate for mixed-format data?</p>
+          <p class="a"><b>Kaçak, T.</b>, Kılıç, A. F., &amp; Doğan, N.</p>
+          <p class="v">AERA 2025 Annual Meeting, United States, 23–27 April 2025 (virtual poster)</p>
+          <a class="doi" href="https://www.aera.net/Publications/Online-Paper-Repository/AERA-Online-Paper-Repository-Viewer/ID/2192471" target="_blank" rel="noopener">AERA repository →</a>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">02</span>
+        <div>
+          <p class="t">The usage of sampling weights and plausible values in multilevel models: A tutorial with TIMSS 2023 Türkiye data</p>
+          <p class="a"><b>Kaçak, T.</b>, Özer Özkan, Y., &amp; Acar Güvendir, M.</p>
+          <p class="v">XVI. International Balkan Education and Science Congress, Edirne, 15–17 October 2025 (full paper)</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">03</span>
+        <div>
+          <p class="t">Unpacking item format effects in TIMSS 2023 mathematics: Evidence from Balkan countries using explanatory item response modeling</p>
+          <p class="a"><b>Kaçak, T.</b>, Acar Güvendir, M., &amp; Özer Özkan, Y.</p>
+          <p class="v">XVI. International Balkan Education and Science Congress, Edirne, 15–17 October 2025 (full paper)</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">04</span>
+        <div>
+          <p class="t">Sınıfta teoriyle yüzleşmek: Yeni mezun öğretmenlerin ölçme ve değerlendirme bilgilerini uygulama deneyimleri</p>
+          <p class="a">Acar Güvendir, M., Özer Özkan, Y., &amp; <b>Kaçak, T.</b></p>
+          <p class="v">EDUCongress 2025 – International Educational Congress, Antalya, 26–29 November 2025 (full paper)</p>
+        </div>
+      </article>
+
+      <h3>2024</h3>
+      <article class="pub">
+        <span class="idx">05</span>
+        <div>
+          <p class="t">Effects of cross-loadings on factor retention methods' performances in EFA with categorical variables</p>
+          <p class="a"><b>Kaçak, T.</b>, Kılıç, A. F., &amp; Acar Güvendir, M.</p>
+          <p class="v">9th International Congress on Measurement and Evaluation in Education and Psychology, Eskişehir, 3–6 September 2024</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">06</span>
+        <div>
+          <p class="t">To what extent do factor retention methods perform? An investigation on hierarchical structures</p>
+          <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F.</p>
+          <p class="v">9th International Congress on Measurement and Evaluation in Education and Psychology, Eskişehir, 3–6 September 2024</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">07</span>
+        <div>
+          <p class="t">Çevrimiçi, yüz yüze, ödüllü ve ödülsüz uygulanan ölçekler denk sonuçlar verir mi?</p>
+          <p class="a">Kılıç, A. F., Acar Güvendir, M., Güler, G., Aktaş, M., &amp; <b>Kaçak, T.</b></p>
+          <p class="v">9th International Congress on Measurement and Evaluation in Education and Psychology, Eskişehir, 3–6 September 2024</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">08</span>
+        <div>
+          <p class="t">Baskın maddeler faktör sayısı belirleme yöntemlerinin performansını nasıl etkiler?</p>
+          <p class="a">Kılıç, A. F., <b>Kaçak, T.</b>, Acar Güvendir, M., &amp; Güler, G.</p>
+          <p class="v">International Symposium on Measurement, Selection and Placement (ÖSYM), Ankara, 4–6 October 2024</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">09</span>
+        <div>
+          <p class="t">Açımlayıcı faktör analizinde faktör sayısı belirleme yöntemlerinin çeşitli koşullar altında karşılaştırılması</p>
+          <p class="a"><b>Kaçak, T.</b>, &amp; Anıl, D.</p>
+          <p class="v">XI. International Eurasian Educational Research Congress, Kocaeli, 21–24 May 2024</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">10</span>
+        <div>
+          <p class="t">The relationship between teacher stress and job satisfaction with the mediating role of teacher self-efficacy: International evidence from PISA 2022</p>
+          <p class="a">Ekici, G., &amp; <b>Kaçak, T.</b></p>
+          <p class="v">XI. International Eurasian Educational Research Congress, Kocaeli, 21–24 May 2024</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">11</span>
+        <div>
+          <p class="t">Genel Afete Hazırlık İnanç Ölçeği'nin DMF açısından incelenmesi</p>
+          <p class="a">Avcı, E., &amp; <b>Kaçak, T.</b></p>
+          <p class="v">12th International Symposium on Social Studies Education, Edirne, 20–22 May 2024</p>
+        </div>
+      </article>
+
+      <h3>2023</h3>
+      <article class="pub">
+        <span class="idx">12</span>
+        <div>
+          <p class="t">How do missing data imputation methods affect reliability coefficients?</p>
+          <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F.</p>
+          <p class="v">3rd International Trakya Scientific Research Congress, Edirne, 25–26 November 2023</p>
+        </div>
+      </article>
+      <article class="pub">
+        <span class="idx">13</span>
+        <div>
+          <p class="t">Investigation of reliability coefficients with different conditions</p>
+          <p class="a"><b>Kaçak, T.</b>, &amp; Kılıç, A. F.</p>
+          <p class="v">Academy of Scientific and Educational Studies (ASES), Balıkesir, 27–29 October 2023</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching">
+      <div class="sec-head"><span class="sec-num">05</span><h2>Teaching &amp; resources</h2></div>
+      <div class="cards">
+        <div class="card">
+          <h4>Course notes — R for psychometrics</h4>
+          <p>Materials for OLC733 &amp; OLC731: statistical programming with R and psychometrics with R.</p>
+          <a href="https://rpubs.com/tugaykacak" target="_blank" rel="noopener">Open on RPubs →</a>
+        </div>
+        <div class="card">
+          <h4>Operation Span Test — Turkish version</h4>
+          <p>A Turkish adaptation of the Operation Span Test (OSPAN) for measuring working memory capacity. Download the HTML file and open it locally in a browser.</p>
+          <a href="https://drive.google.com/file/d/1U4Xer20uTDRi3qkKfRytYu0vaMgz6VSz/view?usp=drive_link" target="_blank" rel="noopener">Download the test →</a>
+        </div>
+        <div class="card">
+          <h4>Code &amp; simulation scripts</h4>
+          <p>R scripts and reproducible materials from my simulation studies.</p>
+          <a href="https://github.com/tkacak" target="_blank" rel="noopener">Browse on GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sec-head"><span class="sec-num">06</span><h2>Contact</h2></div>
+      <p class="lede">
+        Happy to hear about collaborations, questions on factor retention or simulation design, and corrections to anything on this page.<br>
+        <a class="sub-link" href="mailto:tugaykacak@trakya.edu.tr">tugaykacak@trakya.edu.tr</a> &nbsp;·&nbsp;
+        <a class="sub-link" href="mailto:kacaktugay@gmail.com">kacaktugay@gmail.com</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© <span id="yr">2026</span> Tugay Kaçak · Trakya University, Faculty of Education</p>
+    <p class="ids">ORCID 0000-0002-5319-7148 · WoS ResearcherID MIK-0776-2025 · Scopus 58979529600</p>
+  </footer>
+</div>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Theme
+  var root = document.documentElement, btn = document.getElementById('theme');
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) saved = 'dark';
+  if (saved) root.setAttribute('data-theme', saved);
+  btn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // Publication filter + search
+  var chips = document.querySelectorAll('.chip');
+  var pubs = document.querySelectorAll('#publist .pub');
+  var heads = document.querySelectorAll('#publist h3');
+  var search = document.getElementById('pubsearch');
+  var empty = document.getElementById('empty');
+  var active = 'all';
+
+  function apply() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    pubs.forEach(function (p) {
+      var okType = active === 'all' || p.dataset.type === active;
+      var okText = !q || p.textContent.toLowerCase().indexOf(q) > -1;
+      var show = okType && okText;
+      p.style.display = show ? '' : 'none';
+      if (show) shown++;
+    });
+    heads.forEach(function (h) {
+      var g = h.dataset.group;
+      var any = Array.prototype.some.call(
+        document.querySelectorAll('#publist .pub[data-type="' + g + '"]'),
+        function (p) { return p.style.display !== 'none'; }
+      );
+      h.style.display = any ? '' : 'none';
+    });
+    empty.style.display = shown ? 'none' : 'block';
+  }
+
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      c.setAttribute('aria-pressed', 'true');
+      active = c.dataset.filter;
+      apply();
+    });
+  });
+  search.addEventListener('input', apply);
+</script>
 </body>
 </html>
