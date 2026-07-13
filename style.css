@@ -1,0 +1,171 @@
+/* ---------------------------------------------------------
+   Tugay Kaçak — personal site
+   Custom styling on top of the Bootstrap "cosmo" theme
+   --------------------------------------------------------- */
+
+:root {
+  --ink: #1c2321;
+  --soft: #5f6d69;
+  --accent: #14554c;
+  --accent-soft: #e6efec;
+  --line: #e2e0da;
+  --paper: #ffffff;
+}
+
+body {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.main-container {
+  max-width: 980px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar-default {
+  background-color: var(--accent);
+  border: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+  font-weight: 500;
+}
+.navbar-default .navbar-brand {
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: rgba(255, 255, 255, .14);
+  color: #ffffff;
+}
+
+/* ---------- Headings ---------- */
+h1.title {
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: 24px;
+}
+h2 {
+  margin-top: 44px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+h3 {
+  margin-top: 28px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+}
+a:hover {
+  color: #0d3a34;
+}
+
+hr {
+  border-top: 1px solid var(--line);
+  margin: 36px 0;
+}
+
+/* ---------- Home hero ---------- */
+.hero {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.hero-text {
+  flex: 1 1 420px;
+}
+.hero-photo {
+  flex: 0 0 180px;
+  text-align: center;
+}
+.hero-photo img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+/* ---------- Cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  transition: border-color .15s ease;
+}
+.card:hover {
+  border-color: var(--accent);
+}
+.card h3 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+/* ---------- Publication numbering ---------- */
+sup {
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* ---------- Status tags ---------- */
+.tag {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.tag.review   { background: #fdf0d9; color: #8a5c07; }
+.tag.revision { background: #e6efec; color: #14554c; }
+.tag.prep     { background: #eceff1; color: #4a5658; }
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  margin: 18px 0;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+th {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--soft);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+  .hero-photo {
+    flex: 1 1 100%;
+    text-align: left;
+  }
+}
