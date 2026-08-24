@@ -12,8 +12,7 @@ files are committed to the repo root so GitHub Pages can serve them.
 |:--|:--|
 | `_site.yml` | Site config: navbar, theme, CSS |
 | `index.Rmd` | Home |
-| `research.Rmd` | Research lines and education |
-| `publications.Rmd` | Journal articles, chapters, work in progress |
+| `publications.Rmd` | Research lines, journal articles, chapters, work in progress, education |
 | `talks.Rmd` | Conference papers and posters |
 | `software.Rmd` | Software, materials, teaching |
 | `style.css` | Custom styling on top of the `cosmo` Bootstrap theme |
@@ -34,7 +33,7 @@ Then, from the project folder:
 rmarkdown::render_site()
 ```
 
-This writes `index.html`, `research.html`, `publications.html`, `talks.html` and
+This writes `index.html`, `publications.html`, `talks.html` and
 `software.html` into the repo root (`output_dir: "."`). Commit **both** the `.Rmd` sources
 and the generated `.html` files, then push:
 
