@@ -141,6 +141,7 @@ sup {
   white-space: nowrap;
 }
 .tag.accepted { background: #dff0e2; color: #1f6b34; }
+.tag.pending  { background: #fbe2df; color: #a13a2a; }
 .tag.review   { background: #fdf0d9; color: #8a5c07; }
 .tag.revision { background: #e6efec; color: #14554c; }
 .tag.prep     { background: #eceff1; color: #4a5658; }
