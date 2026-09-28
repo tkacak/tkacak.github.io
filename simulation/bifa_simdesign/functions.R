@@ -183,8 +183,12 @@ Generate <- function(condition, fixed_objects) {
     slightly   = monte1_latent(condition$NOBS, pop$R, skew = 0.5, kurt = 1.5),
     moderately = monte1_latent(condition$NOBS, pop$R, skew = 1.5, kurt = 3),
     stop("Bilinmeyen LSKEW: ", condition$LSKEW))
-  dat <- latentFactoR::categorize(data = latent, categories = condition$NCAT,
-                                  skew_value = 0)
+  ## categorize() tek bir vektor icin yazilmis. NCAT > 6'da cut() kullanir;
+  ## matrise uygulanirsa boyutlar duser ve polyfast "Not a matrix." verir.
+  ## latentFactoR::simulate_factors() gibi sutun sutun uygulanir
+  ## (NCAT 2-6 icin sonuc, tum matrise uygulamayla birebir ayni).
+  dat <- apply(latent, 2, latentFactoR::categorize,
+               categories = condition$NCAT, skew_value = 0)
   list(dat = dat, lambda = pop$lambda)
 }
 
