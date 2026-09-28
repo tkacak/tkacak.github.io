@@ -20,8 +20,13 @@ All scripts expect this folder to be the working directory.
 
 ## Requirements
 
-R ≥ 4.1 with SimDesign, bifactor (<https://github.com/Marcosjnez/bifactor>), fungible, latentFactoR and MASS.
+SimDesign, bifactor (<https://github.com/Marcosjnez/bifactor>, compiled C++), fungible, latentFactoR and MASS.
 On a cluster, install them into your user library before submitting.
+
+The current CRAN release of fungible (2.4.8) requires R ≥ 4.5.0, and its dependency CVXR (1.9.2) requires
+Matrix ≥ 1.7. On an older R, `install.packages()` will not install them; install the versions you tested
+with locally instead (check with `packageVersion()`, install with `remotes::install_version()`).
+SimDesign 2.27 needs qs2 → stringfish → RcppParallel ≥ 6.1.1.
 
 ## How to run
 
