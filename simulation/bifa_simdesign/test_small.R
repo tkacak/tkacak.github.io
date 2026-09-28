@@ -8,10 +8,10 @@ source("functions.R")
 Design <- make_design()
 FO     <- make_fixed_objects("population")
 
-## Uc uca kosullar: en kucuk/en buyuk model, her LSKEW, NCAT = 2 ve 7
+## Uc uca kosullar: en kucuk/en buyuk model, her LSKEW, NCAT = 2 ve 6
 pick <- with(Design, which(
   (NFAC == 2 & NVAR == 4 & GLOAD == "medium" & FLOAD == "medium" & FRHO == 0 &
-     NOBS == 250 & NCAT %in% c(2, 7)) |
+     NOBS == 250 & NCAT %in% c(2, 6)) |
   (NFAC == 4 & NVAR == 8 & GLOAD == "low" & FLOAD == "high" & FRHO == 0.5 &
      NOBS == 1000 & LSKEW == "moderately" & NCAT == 3)))
 

@@ -13,7 +13,7 @@ sim_dir <- "D:/Ranalysis/makale/EPOD_Ordered_EBIFA/publishng/JMEEP/RV1/RV_AE/sim
 setwd(sim_dir)
 source("functions.R")
 
-Design <- make_design()                 # 8748 kosul
+Design <- make_design()                 # 7290 kosul
 FO     <- make_fixed_objects("population")
 n_rep  <- 100
 

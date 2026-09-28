@@ -3,9 +3,9 @@
 | File | Purpose |
 |---|---|
 | `functions.R` | Design, `Generate`, `Analyse`, `Summarise`, alignment/metric helpers (single source) |
-| `test_small.R` | 7-condition × 10-rep smoke test (includes NCAT = 7); run first |
-| `run_local.R` | Full design on one machine (`runSimulation`, resumable) |
-| `run_hpc.R` + `submit_slurm.sh` | SLURM job array (`runArraySimulation`, 12 conditions per task → 729 tasks) |
+| `test_small.R` | 7-condition × 10-rep smoke test; run first |
+| `run_local.R` | Full design (7290 conditions, NCAT 2–6) on one machine (`runSimulation`, resumable) |
+| `run_hpc.R` + `submit_slurm.sh` | SLURM job array (`runArraySimulation`, 12 conditions per task → 608 tasks) |
 | `collect_hpc.R` | `SimCheck` + `SimCollect`, lists array IDs to resubmit |
 
 Metrics per method (ULS, ML, PA, REGULS, REGML, PCA), separately for general and specific factors:

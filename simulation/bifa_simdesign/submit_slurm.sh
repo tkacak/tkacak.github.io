@@ -1,10 +1,10 @@
 #!/bin/bash
 ## Gonderim: mkdir -p logs && sbatch submit_slurm.sh
 ## (SLURM logs/ klasorunu kendisi olusturmaz; yoksa gorev sessizce duser.)
-## --array ust siniri = ceiling(8748 / ROWS_PER_JOB). ROWS_PER_JOB=12 -> 729.
+## --array ust siniri = ceiling(7290 / ROWS_PER_JOB). ROWS_PER_JOB=12 -> 608.
 ## Kumenizin MaxArraySize degeri daha kucukse ROWS_PER_JOB'u buyutun.
 #SBATCH --job-name=bifa_sim
-#SBATCH --array=1-729
+#SBATCH --array=1-608
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=8G
 #SBATCH --time=24:00:00

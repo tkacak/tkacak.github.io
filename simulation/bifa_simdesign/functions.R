@@ -15,6 +15,10 @@
 ## --- Tasarim ----------------------------------------------------------------
 ## expand.grid kullaniliyor: satir numaralari eski calismadaki kosul
 ## numaralariyla (sim_data_current_condition_<i>.RDS) birebir ayni kalir.
+## NCAT en yavas degisen faktor oldugu icin NCAT = 7'nin cikarilmasi yalniz
+## son 1458 satiri (7291-8748) siler; 1-7290 numaralari degismez.
+## NCAT = 7 cikarildi: latentFactoR::categorize() 6'dan fazla kategoride sabit
+## esik yerine orneklem araligina gore cut() kullaniyor (N'e bagli kategoriler).
 make_design <- function() {
   d <- expand.grid(
     NGEN  = 1,
@@ -27,7 +31,7 @@ make_design <- function() {
     NOBS  = c(250, 500, 1000),
     CROSS = 0.00,
     LSKEW = c("normal", "slightly", "moderately"), # https://doi.org/10.3758/s13428-015-0619-7
-    NCAT  = c(2, 3, 4, 5, 6, 7),
+    NCAT  = c(2, 3, 4, 5, 6),
     stringsAsFactors = FALSE, KEEP.OUT.ATTRS = FALSE)
   d$ROW <- seq_len(nrow(d))
   ## Ayni evren parametrelerini paylasan kosullar ayni POP_ID'yi alir
