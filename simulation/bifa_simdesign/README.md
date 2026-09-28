@@ -20,7 +20,8 @@ All scripts expect this folder to be the working directory.
 
 ## Requirements
 
-SimDesign, bifactor (<https://github.com/Marcosjnez/bifactor>, compiled C++), fungible, latentFactoR and MASS.
+SimDesign, bifactor, fungible, latentFactoR and MASS. bifactor is installed from GitHub:
+`devtools::install_github("marcosjnez/bifactor", force = TRUE)` (compiled C++).
 On a cluster, install them into your user library before submitting.
 
 The current CRAN release of fungible (2.4.8) requires R ≥ 4.5.0, and its dependency CVXR (1.9.2) requires
