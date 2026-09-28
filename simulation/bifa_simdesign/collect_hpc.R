@@ -1,38 +1,28 @@
-## ===========================================================================
-## collect_hpc.R -- HPC ciktilarini kontrol et ve birlestir.
-## ===========================================================================
 library(SimDesign)
+source("functions.R")
 
-script_dir <- Sys.getenv("SIM_DIR", getwd())
-source(file.path(script_dir, "functions.R"))
+Design <- make_design()
+hpc    <- hpc_settings()
+n_rep  <- 100
 
-Design       <- make_design()
-OUT_DIR      <- Sys.getenv("OUT_DIR", file.path(script_dir, "sim_results"))
-FILENAME     <- "bifa"
-ROWS_PER_JOB <- as.integer(Sys.getenv("ROWS_PER_JOB", "12"))
-
-## 1) Eksik kosullar -> yeniden gonderilecek array ID'leri
-files   <- file.path(OUT_DIR, paste0(FILENAME, "-", seq_len(nrow(Design)), ".rds"))
+files   <- file.path(hpc$out_dir, sprintf("%s-%d.rds", hpc$filename, seq_len(nrow(Design))))
 missing <- which(!file.exists(files))
 if (length(missing)) {
-  ids <- sort(unique(ceiling(missing / ROWS_PER_JOB)))
-  message(length(missing), " kosul eksik. Yeniden gonderin:\n  sbatch --array=",
+  ids <- sort(unique(ceiling(missing / hpc$rows_per_job)))
+  message(length(missing), " conditions missing. Resubmit with:\n  sbatch --array=",
           paste(ids, collapse = ","), " submit_slurm.sh")
-  message("(Uzun listede virgul siniri asilirsa parcalara bolun.)")
 }
-SimCheck(dir = OUT_DIR)
+SimCheck(dir = hpc$out_dir)
 
-## 2) Birlestir (eksik varsa yalniz mevcutlar birlesir)
-final <- SimCollect(dir = OUT_DIR)
+final <- SimCollect(dir = hpc$out_dir)
 final
 
-## max_time/max_RAM nedeniyle erken kesilen kosullar: REPLICATIONS < 100
-short <- final[final$REPLICATIONS < 100, c("ROW", "REPLICATIONS")]
+short <- final[final$REPLICATIONS < n_rep, c("ROW", "REPLICATIONS")]
 if (nrow(short)) {
-  message(nrow(short), " kosul eksik replikasyonla bitti; dosyalarini silip ",
-          "ilgili array ID'lerini yeniden gonderin:")
+  message(nrow(short), " conditions finished with fewer than ", n_rep,
+          " replications; delete their files and resubmit their array IDs:")
   print(short)
 }
 
-saveRDS(final, file.path(script_dir, "bifa_sim_results.rds"))
-saveRDS(to_long(final), file.path(script_dir, "bifa_sim_results_long.rds"))
+saveRDS(final, "bifa_sim_results.rds")
+saveRDS(to_long(final), "bifa_sim_results_long.rds")

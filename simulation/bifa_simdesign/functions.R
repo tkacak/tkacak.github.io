@@ -1,24 +1,3 @@
-## ===========================================================================
-## functions.R
-## SimDesign bilesenleri: Design, Generate, Analyse, Summarise + yardimcilar.
-## run_local.R ve run_hpc.R bu dosyayi source() eder; tek kaynak burasidir.
-##
-## Metrikler (her yontem icin, genel / ozel faktor ayri):
-##   CC  : Tucker uyum katsayisi (hizalanmis kestirim vs gercek yuk sutunu)
-##   AB  : Mutlak yanlilik = ortalama_p | mean_r(lambda_hat_pr) - lambda_p |
-##   RB  : Goreli yanlilik (%) = ortalama_p [ (mean_r(lambda_hat_pr) - lambda_p) / lambda_p ] * 100
-##   MAE : ortalama_p mean_r | lambda_hat_pr - lambda_p |  (eski metrics.R'deki "AB")
-##   conv_rate : yontemin gecerli cozum dondurdugu replikasyon orani
-## AB/RB/MAE yalniz salient (sifir olmayan) gercek yukler uzerinden hesaplanir.
-## ===========================================================================
-
-## --- Tasarim ----------------------------------------------------------------
-## expand.grid kullaniliyor: satir numaralari eski calismadaki kosul
-## numaralariyla (sim_data_current_condition_<i>.RDS) birebir ayni kalir.
-## NCAT en yavas degisen faktor oldugu icin NCAT = 7'nin cikarilmasi yalniz
-## son 1458 satiri (7291-8748) siler; 1-7290 numaralari degismez.
-## NCAT = 7 cikarildi: latentFactoR::categorize() 6'dan fazla kategoride sabit
-## esik yerine orneklem araligina gore cut() kullaniyor (N'e bagli kategoriler).
 make_design <- function() {
   d <- expand.grid(
     NGEN  = 1,
@@ -30,48 +9,46 @@ make_design <- function() {
     GRHO  = 0.00,
     NOBS  = c(250, 500, 1000),
     CROSS = 0.00,
-    LSKEW = c("normal", "slightly", "moderately"), # https://doi.org/10.3758/s13428-015-0619-7
+    LSKEW = c("normal", "slightly", "moderately"),
     NCAT  = c(2, 3, 4, 5, 6),
     stringsAsFactors = FALSE, KEEP.OUT.ATTRS = FALSE)
   d$ROW <- seq_len(nrow(d))
-  ## Ayni evren parametrelerini paylasan kosullar ayni POP_ID'yi alir
-  ## (NOBS, LSKEW, NCAT evreni degistirmez).
   pop_key  <- do.call(paste, d[c("NGEN", "NFAC", "NVAR", "GLOAD", "FLOAD",
                                  "FRHO", "GRHO", "CROSS")])
   d$POP_ID <- match(pop_key, unique(pop_key))
   d
 }
 
-## --- Sabit nesneler (fixed_objects) -----------------------------------------
 make_fixed_objects <- function(pop_seed = c("population", "row")) {
   list(
-    ## isim = cikti oneki, deger = fungible::BiFAD facMethod
-    methods   = c(ULS = "fals", ML = "faml", PA = "fapa",
-                  REGULS = "faregLS", REGML = "faregML", PCA = "pca"),
-    loading_slot = "BstarSL",   # BiFAD ciktisindan alinacak yuk matrisi
-    min_true  = 1e-8,           # |lambda| bunun ustundeyse salient
-    seed_base = 1234L,
-    ## "population": evren seed'i = seed_base + POP_ID (onerilen)
-    ## "row"       : evren seed'i = seed_base + ROW (eski kodu birebir yeniden uretir)
-    pop_seed  = match.arg(pop_seed)
+    methods      = c(ULS = "fals", ML = "faml", PA = "fapa",
+                     REGULS = "faregLS", REGML = "faregML", PCA = "pca"),
+    loading_slot = "BstarSL",
+    min_true     = 1e-8,
+    seed_base    = 1234L,
+    pop_seed     = match.arg(pop_seed)
   )
 }
 
-## --- RNG yardimcilari -------------------------------------------------------
-## expr'i calistirir, sonra .Random.seed'i (ve dolayisiyla RNGkind'i) eski
-## haline getirir. SimDesign'in replikasyon akisi bozulmaz.
+hpc_settings <- function() {
+  scratch <- Sys.getenv("SCRATCH")
+  list(
+    rows_per_job = as.integer(Sys.getenv("ROWS_PER_JOB", "12")),
+    out_dir      = Sys.getenv("OUT_DIR", file.path(if (nzchar(scratch)) scratch else getwd(),
+                                                   "bifa_sim_results")),
+    filename     = "bifa"
+  )
+}
+
 with_preserved_rng <- function(expr) {
-  had  <- exists(".Random.seed", envir = .GlobalEnv, inherits = FALSE)
-  old  <- if (had) get(".Random.seed", envir = .GlobalEnv) else NULL
+  had <- exists(".Random.seed", envir = .GlobalEnv, inherits = FALSE)
+  old <- if (had) get(".Random.seed", envir = .GlobalEnv) else NULL
   on.exit(if (had) assign(".Random.seed", old, envir = .GlobalEnv)
           else if (exists(".Random.seed", envir = .GlobalEnv, inherits = FALSE))
             rm(".Random.seed", envir = .GlobalEnv), add = TRUE)
   expr
 }
 
-## --- Evren modeli -----------------------------------------------------------
-## sim_factor yukleri rastgele cektigi icin sabit bir Mersenne-Twister seed'i ile
-## deterministik uretilir; Generate ve Summarise ayni matrisi gorur.
 population_model <- function(condition, fixed_objects) {
   id <- if (fixed_objects$pop_seed == "row") condition$ROW else condition$POP_ID
   with_preserved_rng({
@@ -92,10 +69,6 @@ population_model <- function(condition, fixed_objects) {
   list(lambda = lambda, R = model$R)
 }
 
-## fungible::monte1 kendi icinde set.seed() cagirir. Seed SimDesign akisindan
-## cekilir (her replikasyon/kosul farkli), sonra akis geri yuklenir.
-## Eski kodda seed = 1234 + j idi: ayni j ayni ham sayilari tum kosullarda
-## tekrar kullaniyordu.
 monte1_latent <- function(nsub, R, skew, kurt) {
   s <- sample.int(.Machine$integer.max, 1L)
   p <- nrow(R)
@@ -104,20 +77,18 @@ monte1_latent <- function(nsub, R, skew, kurt) {
                      skewvec = rep(skew, p), kurtvec = rep(kurt, p))$data)
 }
 
-## --- Faktor indeksleri ------------------------------------------------------
 factor_index <- function(condition, TL) {
   n_gen  <- as.integer(condition$NGEN)
   n_spec <- n_gen * as.integer(condition$NFAC)
   n_item <- n_spec * as.integer(condition$NVAR)
   if (ncol(TL) != n_gen + n_spec || nrow(TL) != n_item)
-    stop(sprintf("true lambda %dx%d, beklenen %dx%d", nrow(TL), ncol(TL),
+    stop(sprintf("true lambda is %dx%d, expected %dx%d", nrow(TL), ncol(TL),
                  n_item, n_gen + n_spec))
   list(g = seq_len(n_gen), s = seq.int(n_gen + 1L, n_gen + n_spec))
 }
 
 salient_mask <- function(TL, cols, min_true) abs(TL[, cols, drop = FALSE]) > min_true
 
-## --- Hizalama ve Tucker CC --------------------------------------------------
 tucker_cc <- function(A, B) {
   A <- as.matrix(A); B <- as.matrix(B)
   colSums(A * B) / sqrt(colSums(A^2) * colSums(B^2))
@@ -127,13 +98,9 @@ cc_against <- function(target, M) abs(tucker_cc(matrix(target, nrow(M), ncol(M))
 
 extract_lambda <- function(fit, slot) {
   lam <- if (is.list(fit)) fit[[slot]] else NULL
-  if (is.list(lam) && !is.null(lam$lambda)) lam <- lam$lambda
-  if (!is.matrix(lam)) return(NULL)
-  unname(lam)
+  if (is.matrix(lam)) unname(lam) else NULL
 }
 
-## Genel faktor(ler): congruence ile greedy eslestirme + isaret duzeltme.
-## Ozel faktorler: fungible::faAlign (varsa MatchMethod = "CC").
 align_loadings <- function(lam, TL, g_cols, s_cols) {
   if (is.null(lam) || !identical(dim(lam), dim(TL)) || !all(is.finite(lam)))
     return(NULL)
@@ -158,8 +125,6 @@ align_loadings <- function(lam, TL, g_cols, s_cols) {
   unname(lam_a)
 }
 
-## --- Tek yontem, tek replikasyon --------------------------------------------
-## Cikti uzunlugu kosula bagli ama sabit: 2 CC + salient genel + salient ozel.
 rep_output <- function(lam_a, TL, idx, min_true) {
   mg <- salient_mask(TL, idx$g, min_true)
   ms <- salient_mask(TL, idx$s, min_true)
@@ -177,32 +142,21 @@ rep_output <- function(lam_a, TL, idx, min_true) {
     stats::setNames(es, paste0("s", seq_along(es))))
 }
 
-## ===========================================================================
-## SimDesign fonksiyonlari
-## ===========================================================================
 Generate <- function(condition, fixed_objects) {
   pop <- population_model(condition, fixed_objects)
   latent <- switch(condition$LSKEW,
     normal     = MASS::mvrnorm(condition$NOBS, rep(0, nrow(pop$R)), pop$R),
     slightly   = monte1_latent(condition$NOBS, pop$R, skew = 0.5, kurt = 1.5),
     moderately = monte1_latent(condition$NOBS, pop$R, skew = 1.5, kurt = 3),
-    stop("Bilinmeyen LSKEW: ", condition$LSKEW))
-  ## categorize() tek bir vektor icin yazilmis. NCAT > 6'da cut() kullanir;
-  ## matrise uygulanirsa boyutlar duser ve polyfast "Not a matrix." verir.
-  ## latentFactoR::simulate_factors() gibi sutun sutun uygulanir
-  ## (NCAT 2-6 icin sonuc, tum matrise uygulamayla birebir ayni).
+    stop("Unknown LSKEW: ", condition$LSKEW))
   dat <- apply(latent, 2, latentFactoR::categorize,
                categories = condition$NCAT, skew_value = 0)
   list(dat = dat, lambda = pop$lambda)
 }
 
-## Polikorik matris replikasyon basina BIR KEZ hesaplanir, 6 yontem ayni
-## matrisi kullanir. Polikorik basarisizsa stop() -> SimDesign veriyi yeniden
-## ceker (ERRORS sutununda sayilir). Tek bir yontemin basarisizligi NA olarak
-## kaydedilir; veri yeniden cekilmez (aksi halde conv_rate sisirilir).
 Analyse <- function(condition, dat, fixed_objects) {
   R <- bifactor::polyfast(dat$dat)$correlation
-  if (!is.matrix(R) || !all(is.finite(R))) stop("polyfast gecersiz korelasyon matrisi")
+  if (!is.matrix(R) || !all(is.finite(R))) stop("polyfast returned an invalid correlation matrix")
   TL  <- dat$lambda
   idx <- factor_index(condition, TL)
   n_group <- as.integer(condition$NGEN * condition$NFAC)
@@ -215,14 +169,13 @@ Analyse <- function(condition, dat, fixed_objects) {
                             TL, idx$g, idx$s)
     rep_output(lam_a, TL, idx, fixed_objects$min_true)
   })
-  unlist(out)   # isimler: "ULS.CC_general", "ULS.g1", ..., "PCA.s32"
+  unlist(out)
 }
 
 summarise_block <- function(est, truth) {
   if (!nrow(est)) return(c(AB = NA_real_, RB = NA_real_, MAE = NA_real_))
   c(AB  = mean(SimDesign::bias(est, parameter = truth, abs = TRUE)),
-    RB  = mean(SimDesign::bias(est, parameter = truth, type = "relative",
-                               percent = TRUE)),
+    RB  = mean(SimDesign::bias(est, parameter = truth, type = "relative")),
     MAE = mean(abs(sweep(est, 2, truth))))
 }
 
@@ -249,10 +202,9 @@ Summarise <- function(condition, results, fixed_objects) {
       MAE_general = bg[["MAE"]], MAE_specific = bs[["MAE"]])
   })
   names(out) <- names(fixed_objects$methods)
-  unlist(out)   # isimler: "ULS.CC_general", ..., "PCA.MAE_specific"
+  unlist(out)
 }
 
-## --- Genis sonucu uzun formata cevir (ANOVA / grafik icin) ------------------
 to_long <- function(res, methods = names(make_fixed_objects()$methods)) {
   res <- as.data.frame(res)
   pat <- paste0("^(", paste(methods, collapse = "|"), ")\\.")
