@@ -262,9 +262,9 @@ fitTab <- do.call(rbind, lapply(1:Kmax, function(K) {
 }))
 
 fitTab$flag <- with(fitTab, ifelse(
-  K > 1 & (minProp < 0.05 | minModalN < 20), "kucuk_sinif",
-  ifelse(K > 1 & minMeanDist < 0.20, "ayni_siniflar",
-         ifelse(!SEok, "SE_yok", ""))))
+  K > 1 & (minProp < 0.05 | minModalN < 20), "küçük/boş sınıf",
+  ifelse(K > 1 & minMeanDist < 0.20, "aynılaşmış sınıflar",
+         ifelse(!SEok, "SE hesaplanamadı", ""))))
 
 cat("\n================ Uyum karşılaştırması ================\n")
 print(fitTab, row.names = FALSE)
