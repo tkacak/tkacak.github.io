@@ -1,0 +1,64 @@
+//LG6.0//
+version = 6.0
+infile 'fmm_data_lg.txt'
+
+model
+title 'FMM K1-K5';
+// FMM: class-invariant loadings, intercepts, residual variances, factor covariance;
+// factor variances fixed at 1; factor means 0 in class 1, free in other classes;
+// Bayes constants 0 = plain ML.
+options
+   maxthreads=all;
+   algorithm
+      tolerance=1e-008 emtolerance=0.01 emiterations=250 nriterations=100;
+   startvalues
+      seed=0 sets=200 tolerance=1e-005 iterations=100;
+   bayes
+      categorical=0 variances=0 latent=0 poisson=0;
+   montecarlo
+      seed=0 sets=64 replicates=500 tolerance=1e-008
+      LLdiff;
+   quadrature  nodes=50;
+   missing  includeall;
+   output
+      parameters=first standarderrors profile probmeans=posterior
+      estimatedvalues=model
+      append = 'fmm_lg_summary.csv';
+variables
+   dependent y1 continuous, y2 continuous, y3 continuous, y4 continuous, y5 continuous,
+      y6 continuous, y7 continuous, y8 continuous, y9 continuous, y10 continuous;
+   latent
+      Class nominal 1:5,
+      F1 continuous,
+      F2 continuous;
+equations
+   Class <- 1;
+   (1) F1;
+   (1) F2;
+   F1 <-> F2;
+   F1 <- (a) 1 | Class;
+   F2 <- (b) 1 | Class;
+   y1 <- 1 + F1;
+   y2 <- 1 + F1;
+   y3 <- 1 + F1;
+   y4 <- 1 + F1;
+   y5 <- 1 + F1;
+   y6 <- 1 + F2;
+   y7 <- 1 + F2;
+   y8 <- 1 + F2;
+   y9 <- 1 + F2;
+   y10 <- 1 + F2;
+   y1;
+   y2;
+   y3;
+   y4;
+   y5;
+   y6;
+   y7;
+   y8;
+   y9;
+   y10;
+   a[1] = 0;
+   b[1] = 0;
+end model
+
