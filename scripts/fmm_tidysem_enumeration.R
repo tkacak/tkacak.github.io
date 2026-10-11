@@ -1,13 +1,14 @@
 # =============================================================================
-# Faktör Karışım Modeli — 1, 2 ve 3 sınıflı çözümlerin karşılaştırılması
+# Faktör Karışım Modeli — 1–5 sınıflı çözümlerin karşılaştırılması
 # OpenMx (kestirim motoru) + tidySEM (model kurma, başlangıç değerleri,
 # uyum tablosu, sınıf olasılıkları, VLMR/LMR ve BLRT)
 #
 # Gereksinimler: OpenMx >= 2.21.13, tidySEM >= 0.2.12, MASS
 #   install.packages(c("OpenMx", "tidySEM", "MASS"))
 #
-# Veri üretimi fmm_openmx_simulation.R ile birebir aynıdır (aynı seed ->
-# aynı veri), böylece iki script'in sonuçları karşılaştırılabilir.
+# Veri üretimi fmm_openmx_enumeration.R ile birebir aynıdır (aynı seed ->
+# aynı veri). O script'in bulduğu -2LL değerleri aşağıda referans olarak
+# kullanılır; iki script aynı modeli kestirdiği için değerler eşleşmelidir.
 # =============================================================================
 
 library(OpenMx)
@@ -18,12 +19,19 @@ library(MASS)
 # 0. Ayarlar
 # -----------------------------------------------------------------------------
 seed       <- 20261011
-classes    <- 1:3     # karşılaştırılacak sınıf sayıları
+classes    <- 1:5     # karşılaştırılacak sınıf sayıları
 nStarts    <- 20      # k > 1 için ek başlangıç sayısı (k-means/hclust/rastgele)
+runLMR     <- TRUE    # VLMR/LMR (tidySEM::lr_lmr; nonnest2 paketi gerekir)
 runBLRT    <- TRUE    # BLRT uzun sürer; hızlı deneme için FALSE yap
+blrtMaxK   <- 3       # BLRT yalnızca 1..blrtMaxK sınıflı modeller arasında
+                      # (1 vs 2, 2 vs 3); 5'e kadar çıkmak saatler sürebilir
 nBoot      <- 100     # BLRT bootstrap replikasyonu
 nWorkers   <- max(1, parallel::detectCores() - 1)
 outDir     <- "fmm_tidysem_output"
+
+# fmm_openmx_enumeration.R'nin aynı veride bulduğu en iyi -2LL değerleri
+refM2LL <- c(`1` = 25276.774, `2` = 25272.653, `3` = 25265.943,
+             `4` = 25263.941, `5` = 25258.667)
 
 # -----------------------------------------------------------------------------
 # 1. Veri üretimi (popülasyon: 2 sınıf, 2 faktör, faktör başına 5 madde)
@@ -31,7 +39,7 @@ outDir     <- "fmm_tidysem_output"
 set.seed(seed)
 
 N        <- 1000
-pi2      <- 0.30
+pi2      <- 0.20
 nFac     <- 2
 nPerFac  <- 5
 nItem    <- nFac * nPerFac
@@ -70,10 +78,12 @@ cat("Gerçek sınıf dağılımı:\n"); print(table(trueClass))
 #   - yükler, hata varyansları ve kesişimler sınıflar arası eşit (ortak etiket)
 #   - işaretçi maddelerin (y1, y6) kesişimi 0; diğer kesişimler serbest
 #   - faktör ortalamaları HER sınıfta serbest (k{C}F1, k{C}F2)
-# Popülasyonda tüm kesişimler 0 olduğundan gerçek değerler doğrudan
-# karşılaştırılabilir: sınıf 1 ortalamaları 0, sınıf 2 ortalamaları 1.
-# Bu tanımlama, sınıf 1 ortalamalarını 0'a sabitleyen tanımlamayla aynı
-# olabilirliği verir; ama sınıf etiketleri yer değiştirebilir.
+# Tek bir {C} sözdizimi her sınıfa aynı kalıbı uyguladığı için "yalnızca
+# sınıf 1'in ortalaması 0" doğrudan yazılamaz. Bu tanımlama, "sınıf 1
+# ortalamaları 0, kesişimler serbest" modeliyle AYNI olabilirliği verir
+# (tau' = tau + Lambda*kappa_1, kappa'_c = kappa_c - kappa_1 dönüşümü).
+# Raporlamada sınıflar büyüklüğe göre sıralanır ve ortalamalar en büyük
+# sınıfa göre verilir; yani en büyük sınıf "sınıf 1 = 0" referansıdır.
 # -----------------------------------------------------------------------------
 markers <- c("y1", "y6")
 loadLine <- function(f) {
@@ -114,9 +124,15 @@ checkModel <- function(m, k) {
 #       daha iyi -2LL bulunursa 3a sonucunun yerine konur.
 # -----------------------------------------------------------------------------
 m2ll <- function(fit) fit$output$minimum
+step <- function(txt) cat(sprintf("\n[%s] ADIM: %s\n", format(Sys.time(), "%H:%M:%S"), txt))
 
+cat(sprintf("\nR %s | OpenMx %s | tidySEM %s\n", getRversion(),
+            packageVersion("OpenMx"), packageVersion("tidySEM")))
+
+step("3a mx_mixture (tidySEM varsayılanları)")
 set.seed(seed + 1)
 res <- mx_mixture(model = fmmSyntax, classes = classes, data = simData, run = TRUE)
+cat("mx_mixture sınıfı:", paste(class(res), collapse = ", "), "\n")
 for (i in seq_along(classes)) checkModel(res[[i]], classes[i])
 
 makeSplits <- function(k, n) {
@@ -136,6 +152,7 @@ startLog <- list()
 oracle   <- NULL
 for (i in which(classes > 1)) {
   k    <- classes[i]
+  step(sprintf("3b ek başlangıçlar, k = %d (%d başlangıç)", k, nStarts))
   base <- mx_mixture(model = fmmSyntax, classes = k, data = simData, run = FALSE)
   checkModel(base, k)
 
@@ -169,25 +186,50 @@ for (i in which(classes > 1)) {
   }
 }
 
+# Ara kayıt: sonraki adımlar hata verirse kestirimler kaybolmasın
+dir.create(outDir, showWarnings = FALSE)
+saveRDS(list(data = simData, trueClass = trueClass, fits = res, oracle = oracle),
+        file.path(outDir, "fits.rds"))
+
+# OpenMx script'iyle tutarlılık kontrolü
+refTab <- data.frame(classes = classes, tidySEM = round(sapply(res, m2ll), 3),
+                     OpenMx = unname(refM2LL[as.character(classes)]))
+refTab$fark <- round(refTab$tidySEM - refTab$OpenMx, 3)
+refTab$yorum <- ifelse(is.na(refTab$fark), "",
+                ifelse(refTab$fark >  0.01, "tidySEM yerel maksimumda: nStarts'ı artır",
+                ifelse(refTab$fark < -0.01, "OpenMx script'i daha iyi çözümü kaçırmış",
+                       "eşleşiyor")))
+cat("\n-2LL tutarlılık kontrolü (fmm_openmx_enumeration.R ile):\n")
+print(refTab, row.names = FALSE)
+
 # -----------------------------------------------------------------------------
 # 4. Uyum ve sınıf sayısı kararı
 # -----------------------------------------------------------------------------
+step("4 table_fit")
 fitTab <- table_fit(res)
 cat("\nUyum tablosu (tidySEM::table_fit):\n"); print(fitTab)
 
-cat("\nVLMR / LMR (tidySEM::lr_lmr; ardışık k-1 vs k):\n")
-lmrTab <- tryCatch(lr_lmr(res), error = function(e) {
-  message("lr_lmr hata verdi: ", conditionMessage(e)); NULL })
-print(lmrTab)
+# VLMR/LMR'nin k-1 vs k karşılaştırmasındaki kuramsal temeli tartışmalıdır
+# (Jeffries, 2003); karar için BIC ve BLRT'yi esas al.
+lmrTab <- NULL
+if (runLMR) {
+  step("4 lr_lmr (VLMR/LMR)")
+  lmrTab <- tryCatch(lr_lmr(res), error = function(e) {
+    message("lr_lmr hata verdi: ", conditionMessage(e)); NULL })
+  print(lmrTab)
+}
 
 blrtTab <- NULL
 if (runBLRT) {
-  cat(sprintf("\nBLRT (%d replikasyon, %d çekirdek) — uzun sürebilir...\n",
-              nBoot, nWorkers))
+  keep <- which(classes <= blrtMaxK)
+  resB <- res[keep]
+  class(resB) <- class(res)   # `[` sınıf özniteliğini düşürür
+  step(sprintf("4 BLRT (k = %s; %d replikasyon, %d çekirdek) — uzun sürebilir",
+               paste(classes[keep], collapse = ","), nBoot, nWorkers))
   if (requireNamespace("future", quietly = TRUE) && nWorkers > 1)
     future::plan(future::multisession, workers = nWorkers)
   set.seed(seed + 2)
-  blrtTab <- tryCatch(BLRT(res, replications = nBoot), error = function(e) {
+  blrtTab <- tryCatch(BLRT(resB, replications = nBoot), error = function(e) {
     message("BLRT hata verdi: ", conditionMessage(e)); NULL })
   if (requireNamespace("future", quietly = TRUE)) future::plan(future::sequential)
   print(blrtTab)
@@ -205,6 +247,7 @@ posteriorMatrix <- function(fit, k) {
   cp[, probCols, drop = FALSE]
 }
 
+step("5 sınıf olasılıkları ve sınıf ortalamaları")
 classSummary <- list()
 for (i in which(classes > 1)) {
   k   <- classes[i]
@@ -212,26 +255,32 @@ for (i in which(classes > 1)) {
   cat(sprintf("\n================ %d sınıflı çözüm ================\n", k))
   print(class_prob(fit, type = c("sum.posterior", "avg.mostlikely")))
 
-  post  <- posteriorMatrix(fit, k)
-  modal <- max.col(post)
-  cat("\nGerçek sınıf x atanan sınıf:\n")
-  print(table(true = trueClass, assigned = modal))
-
-  p    <- omxGetParameters(fit)
-  kap  <- t(sapply(1:k, function(c) p[paste0("k", c, facNames)]))
-  dimnames(kap) <- list(paste0("class", 1:k), facNames)
+  post <- posteriorMatrix(fit, k)
   size <- colMeans(post)
-  ref  <- which.min(rowSums(kap))   # en düşük ortalamalı sınıf = referans
-  diffs <- sweep(kap, 2, kap[ref, ], "-")  # varyans 1 -> standart fark
+  ord  <- order(size, decreasing = TRUE)   # yeni sınıf 1 = en büyük sınıf
+  post <- post[, ord, drop = FALSE]
+  size <- size[ord]
+
+  modal <- max.col(post)
+  cat("\nGerçek sınıf x atanan sınıf (sınıflar büyüklüğe göre sıralı):\n")
+  print(table(true = trueClass, assigned = factor(modal, levels = 1:k)))
+
+  p   <- omxGetParameters(fit)
+  kap <- t(sapply(1:k, function(c) p[paste0("k", c, facNames)]))[ord, , drop = FALSE]
+  # En büyük sınıfa göre fark = "sınıf 1 ortalamaları 0" parametrizasyonu;
+  # faktör varyansları 1 olduğundan standart fark olarak okunur.
+  kapRel <- sweep(kap, 2, kap[1, ], "-")
 
   cs <- data.frame(k = k, class = 1:k, size = round(size, 3),
-                   round(kap, 3), round(diffs, 3), row.names = NULL)
-  names(cs)[4:(3 + 2 * nFac)] <- c(paste0("mean_", facNames), paste0("d_", facNames))
+                   nModal = tabulate(modal, nbins = k),
+                   round(kapRel, 3), row.names = NULL)
+  names(cs)[5:(4 + nFac)] <- paste0("mean_", facNames)
+  cs$flag <- ifelse(cs$size < 0.05 | cs$nModal < 20, "küçük/boş sınıf", "")
   classSummary[[paste0("k", k)]] <- cs
-  cat("\nSınıf büyüklükleri, faktör ortalamaları ve referansa göre farklar:\n")
-  print(cs)
-  if (k == 2) cat("Popülasyon: büyüklük .70/.30, fark (d) = 1 / 1\n")
+  cat("\nSınıf büyüklükleri ve faktör ortalamaları (sınıf 1 = 0 referansı):\n")
+  print(cs, row.names = FALSE)
 }
+cat("\nPopülasyon: sınıf oranları .80/.20, sınıf 2 - sınıf 1 ortalama farkı 1 / 1\n")
 
 # Ölçme parametreleri (2 sınıflı çözüm) — popülasyonla karşılaştırma
 i2 <- which(classes == 2)
@@ -261,7 +310,7 @@ print(summ, row.names = FALSE)
 cat(sprintf("BIC'e göre seçilen sınıf sayısı: %d (popülasyon: 2)\n",
             summ$classes[which.min(summ$BIC)]))
 
-dir.create(outDir, showWarnings = FALSE)
+write.csv(refTab, file.path(outDir, "m2ll_check.csv"), row.names = FALSE)
 write.csv(as.data.frame(fitTab), file.path(outDir, "fit_table.csv"), row.names = FALSE)
 write.csv(do.call(rbind, startLog), file.path(outDir, "starts.csv"), row.names = FALSE)
 write.csv(do.call(rbind, classSummary), file.path(outDir, "class_summary.csv"), row.names = FALSE)
