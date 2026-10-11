@@ -212,4 +212,4 @@ ic <- function(fit, label) {
              aBIC = round(m2 + log((N + 2) / 24) * k, 2))
 }
 cat("\nModel karşılaştırması:\n")
-print(rbind(ic(cfa1Fit, "CFA 1 sınıf"), ic(fmmFit, "FMM 2 sınıf")))
+print(rbind(ic(cfa1Fit, "CFA_1class"), ic(fmmFit, "FMM_2class")))
