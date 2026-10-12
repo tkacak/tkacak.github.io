@@ -19,7 +19,7 @@ lav <- function(k) paste(c(
 set.seed(1)
 fit2 <- mx_mixture(model = lapply(1:2, lav), data = sim$data)   # TECH11 için K-1
 fit3 <- mx_mixture(model = lapply(1:3, lav), data = sim$data)
-stopifnot(length(omxGetParameters(fit3)) == 99)                  # Mplus Npar
+stopifnot(length(omxGetParameters(fit3)) == 101)   # 93 + 2x3 ortalama + 2 logit                  # Mplus Npar
 
 table_fit(fit3)
 class_prob(fit3, type = c("sum.posterior", "avg.mostlikely"))
