@@ -160,6 +160,37 @@ sup {
 .tag.revision { background: #0f2e2b; color: #4fd1c5; }
 .tag.prep     { background: #262626; color: #b0b0b0; }
 
+/* ---------- Publication link buttons ---------- */
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 14px 0;
+}
+.pub-links a {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  transition: background-color .15s ease;
+}
+.pub-links a.paper {
+  color: var(--accent);
+}
+.pub-links a.paper:hover {
+  background-color: rgba(127, 179, 255, .14);
+}
+.pub-links a.osf {
+  color: #4fd1c5;
+}
+.pub-links a.osf:hover {
+  background-color: rgba(79, 209, 197, .14);
+}
+
 /* ---------- Tables ---------- */
 table {
   width: 100%;
