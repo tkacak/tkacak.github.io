@@ -4,12 +4,17 @@
    --------------------------------------------------------- */
 
 :root {
-  --ink: #1c2321;
-  --soft: #5f6d69;
-  --accent: #14554c;
-  --accent-soft: #e6efec;
-  --line: #e2e0da;
-  --paper: #ffffff;
+  --ink: #f0f0f0;
+  --soft: #a6a6a6;
+  --accent: #7fb3ff;
+  --accent-soft: #15202b;
+  --line: #333333;
+  --paper: #0a0a0a;
+  --panel: #121212;
+}
+
+html, body {
+  background-color: var(--paper);
 }
 
 body {
@@ -24,9 +29,10 @@ body {
 
 /* ---------- Navbar ---------- */
 .navbar-default {
-  background-color: var(--accent);
+  background-color: var(--panel);
   border: 0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
 }
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
@@ -41,8 +47,14 @@ body {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  background-color: rgba(255, 255, 255, .14);
+  background-color: rgba(255, 255, 255, .12);
   color: #ffffff;
+}
+.navbar-default .navbar-toggle {
+  border-color: var(--line);
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
 }
 
 /* ---------- Headings ---------- */
@@ -50,6 +62,7 @@ h1.title {
   font-weight: 700;
   letter-spacing: -.02em;
   margin-bottom: 24px;
+  color: var(--ink);
 }
 h2 {
   margin-top: 44px;
@@ -57,6 +70,7 @@ h2 {
   border-bottom: 1px solid var(--line);
   font-size: 1.6rem;
   font-weight: 600;
+  color: var(--ink);
 }
 h3 {
   margin-top: 28px;
@@ -69,7 +83,7 @@ a {
   color: var(--accent);
 }
 a:hover {
-  color: #0d3a34;
+  color: #b3d1ff;
 }
 
 hr {
@@ -108,7 +122,7 @@ hr {
   margin: 20px 0;
 }
 .card {
-  background: var(--paper);
+  background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 18px 20px;
@@ -140,11 +154,11 @@ sup {
   border-radius: 4px;
   white-space: nowrap;
 }
-.tag.accepted { background: #dff0e2; color: #1f6b34; }
-.tag.pending  { background: #fbe2df; color: #a13a2a; }
-.tag.review   { background: #fdf0d9; color: #8a5c07; }
-.tag.revision { background: #e6efec; color: #14554c; }
-.tag.prep     { background: #eceff1; color: #4a5658; }
+.tag.accepted { background: #123224; color: #6fcf97; }
+.tag.pending  { background: #3a1711; color: #ff8a65; }
+.tag.review   { background: #3a2d0a; color: #ffd54f; }
+.tag.revision { background: #0f2e2b; color: #4fd1c5; }
+.tag.prep     { background: #262626; color: #b0b0b0; }
 
 /* ---------- Tables ---------- */
 table {
@@ -156,12 +170,22 @@ th, td {
   padding: 9px 12px;
   border-bottom: 1px solid var(--line);
   text-align: left;
+  color: var(--ink);
 }
 th {
   font-size: .78rem;
   text-transform: uppercase;
   letter-spacing: .06em;
   color: var(--soft);
+}
+
+/* ---------- Code ---------- */
+code {
+  color: var(--ink);
+  background-color: rgba(255, 255, 255, .08);
+}
+pre:not([class]) {
+  background-color: var(--panel);
 }
 
 /* ---------- Small screens ---------- */
