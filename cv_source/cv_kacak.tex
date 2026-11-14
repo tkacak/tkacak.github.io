@@ -1,0 +1,213 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2cm,top=1.7cm,bottom=2.1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{ragged2e}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Colors ----------
+\definecolor{bgdark}{HTML}{FFFFFF}
+\definecolor{headwhite}{HTML}{000000}
+\definecolor{bodygray}{HTML}{1A1A1A}
+\definecolor{mutedgray}{HTML}{555555}
+\definecolor{rulegray}{HTML}{B0B0B0}
+\definecolor{linkblue}{HTML}{1A54A8}
+\definecolor{tagpending}{HTML}{B0241A}
+\definecolor{tagrevision}{HTML}{00695C}
+\definecolor{tagreview}{HTML}{A3760A}
+\definecolor{tagprep}{HTML}{595959}
+
+\pagecolor{bgdark}
+\color{bodygray}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=linkblue,
+  linkcolor=mutedgray,
+  pdftitle={Tugay Kacak - CV},
+  pdfauthor={Tugay Kacak}
+}
+
+\arrayrulecolor{rulegray}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\color{mutedgray}\small \thepage\ / \pageref{LastPage} \quad Updated 2026-11-14}
+
+% ---------- Helper commands ----------
+\newcommand{\me}[1]{\textbf{\color{headwhite}#1}}
+\newcommand{\cvsection}[1]{%
+  \vspace{10pt}%
+  {\color{headwhite}\large\bfseries #1}\par
+  \vspace{2pt}
+  {\color{rulegray}\hrule height 0.6pt}
+  \vspace{7pt}
+}
+\newcommand{\cvtag}[2]{\textcolor{#1}{\small\textbf{[#2]}}}
+\newcommand{\pubnum}[1]{\textbf{\color{headwhite}#1.}~}
+
+\newcolumntype{D}{>{\raggedleft\arraybackslash\color{mutedgray}}p{2.5cm}}
+\newcolumntype{C}{>{\color{bodygray}\RaggedRight}p{\dimexpr\textwidth-2.5cm-14pt\relax}}
+\newenvironment{cvtable}{%
+  \begin{longtable}{D!{\color{rulegray}\vrule width 0.6pt\hspace{4pt}}C}
+}{%
+  \end{longtable}
+}
+\newcommand{\cvrow}[2]{#1 & #2 \\[7pt]}
+\newcommand{\cvyearhead}[1]{\multicolumn{2}{l}{\rule{0pt}{18pt}\color{headwhite}\bfseries #1}\\[3pt]}
+
+\begin{document}
+\thispagestyle{fancy}
+
+% ================= HEADER =================
+\begin{center}
+{\color{headwhite}\Huge\bfseries Tugay Ka\c{c}ak}\\[6pt]
+{\color{headwhite}\bfseries Research Assistant \textbar{} PhD Candidate}\\[1pt]
+{\color{bodygray}Trakya University, Faculty of Education \textbar{} Hacettepe University}\\[5pt]
+{\small\color{bodygray}
+\href{mailto:tugaykacak@trakya.edu.tr}{\color{linkblue}tugaykacak@trakya.edu.tr}~\textbar~%
+\href{https://tkacak.github.io}{\color{linkblue}tkacak.github.io}~\textbar~%
+\href{https://orcid.org/0000-0002-5319-7148}{\color{linkblue}orcid.org/0000-0002-5319-7148}}\\[2pt]
+{\small\color{bodygray}
+\href{https://github.com/tkacak}{\color{linkblue}github.com/tkacak}~\textbar~%
+\href{https://scholar.google.com/citations?user=-MLgpSEAAAAJ}{\color{linkblue}Google Scholar}~\textbar~%
+\href{https://www.scopus.com/authid/detail.uri?authorId=58979529600}{\color{linkblue}Scopus}~\textbar~%
+\href{https://avesis.trakya.edu.tr/tugaykacak}{\color{linkblue}Avesis}}
+\end{center}
+
+% ================= RESEARCH PROFILE =================
+\cvsection{Research Profile}
+My work centers on how many factors are really there in a scale, and how that decision holds up under ordinal and mixed-format data, cross-loadings, hierarchical and bifactor structures, and departures from standard assumptions --- mostly through large Monte Carlo simulation studies. I extend this into mixture modeling, using finite mixture, latent class, and factor mixture models to uncover unobserved respondent subgroups (careless or disengaged responders, distinct response styles) and to test whether measurement properties hold across them. Alongside the factor-analytic tradition, I use psychometric network models as a complementary lens on construct structure. A fourth line applies these questions to large-scale assessment, studying measurement invariance and item-format effects using PISA, PIRLS, TIMSS, and ICILS data.
+
+% ================= POSITIONS =================
+\cvsection{Positions}
+\begin{cvtable}
+\cvrow{2022 -- Present}{\me{Full Research Assistant}\newline \textcolor{mutedgray}{\textit{Department of Educational Measurement and Evaluation, Trakya University, T\"urkiye}}}
+\end{cvtable}
+
+% ================= EDUCATION =================
+\cvsection{Education}
+\begin{cvtable}
+\cvrow{2025 -- Present}{\me{PhD, Educational Measurement and Evaluation}\newline \textcolor{mutedgray}{\textit{Hacettepe University}}}
+\cvrow{2024}{\me{MSc, Educational Measurement and Evaluation}\newline \textcolor{mutedgray}{\textit{Hacettepe University}}\newline \textcolor{mutedgray}{\textit{Thesis: Comparison of factor retention methods in exploratory factor analysis under various conditions}}}
+\cvrow{2021}{\me{BSc, Primary School Education} (GPA 3.51)\newline \textcolor{mutedgray}{\textit{Anadolu University}}}
+\end{cvtable}
+
+% ================= PUBLICATIONS =================
+\cvsection{Publications}
+
+{\color{headwhite}\bfseries\normalsize Peer-reviewed articles}
+\vspace{4pt}
+
+\pubnum{9} Kılıç, A. F., \& \me{Kaçak, T.} (2026). Structuring psychopathology: A stress-test of factor retention methods in complex hierarchical models. \textit{Assessment}. Advance online publication.\\
+{\small \href{https://doi.org/10.1177/10731911261481399}{\color{linkblue}[Paper]} \href{https://osf.io/sufd3/overview?view_only=f9edc54d7a14447db5b7ab283f9a8927}{\color{linkblue}[OSF]}}
+\vspace{6pt}
+
+\pubnum{8} Acar G\"uvendir, M., Kılıç, A. F., G\"uvendir, E., \& \me{Kaçak, T.} (2026). Bridging minds and machines: A comparative study of AI and human rater agreement and reliability in educational assessment. \textit{Education and Information Technologies}, \textit{31}, 3781--3804.\\
+{\small \href{https://doi.org/10.1007/s10639-026-13949-7}{\color{linkblue}[Paper]}}
+\vspace{6pt}
+
+\pubnum{7} Ekici, G., \& \me{Kaçak, T.} (2026). Easing the burden: How does teacher self-efficacy mediate the association between occupational stress and job satisfaction? International evidence from PISA 2022. \textit{Journal of Teacher Education and Lifelong Learning}, \textit{8}(1), 1--13.\\
+{\small \href{https://doi.org/10.51535/tell.1776536}{\color{linkblue}[Paper]}}
+\vspace{6pt}
+
+\pubnum{6} \me{Kaçak, T.}, Temurtaş, A., \& Kılıç, A. F. (2026). The role of cross-loadings in factor retention with ordinal data: Insights from Monte Carlo simulations. \textit{Psihologija}. Advance online publication.\\
+{\small \href{https://doi.org/10.2298/PSI250410050K}{\color{linkblue}[Paper]}}
+\vspace{6pt}
+
+\pubnum{5} Kılıç, A. F., Acar G\"uvendir, M., G\"uler, G., \& \me{Kaçak, T.} (2025). Examining the wording effect: What are we measuring? \textit{Measurement: Interdisciplinary Research and Perspectives}, \textit{23}(2), 172--188.\\
+{\small \href{https://doi.org/10.1080/15366367.2024.2329505}{\color{linkblue}[Paper]}}
+\vspace{6pt}
+
+\pubnum{4} \me{Kaçak, T.}, \& Kılıç, A. F. (2025). Factor extraction in exploratory factor analysis for ordinal indicators: Is principal component analysis the best option? \textit{International Journal of Assessment Tools in Education}, \textit{12}(1), 113--130.\\
+{\small \href{https://doi.org/10.21449/ijate.1481201}{\color{linkblue}[Paper]}}
+\vspace{6pt}
+
+\pubnum{3} Aydo\u{g}du, M. Z., Kılıç, A. F., \& \me{Kaçak, T.} (2025). Investigation of mathematics teacher candidates' problem solving and problem posing abilities: The mediating role of belief and self-efficacy. \textit{Pamukkale University Journal of Education}, (65).\\
+{\small \href{https://doi.org/10.9779/pauefd.1530235}{\color{linkblue}[Paper]}}
+\vspace{6pt}
+
+\pubnum{2} Aydo\u{g}du, M. Z., T\"urk Kurtça, T., Kılıç, A. F., \& \me{Kaçak, T.} (2025). The role of value on mathematics between self-efficacy and liking mathematics: A moderated mediation analysis. \textit{Sakarya University Journal of Education}, \textit{15}(2), 236--251.\\
+{\small \href{https://doi.org/10.19126/suje.1621346}{\color{linkblue}[Paper]}}
+\vspace{6pt}
+
+\pubnum{1} \me{Kaçak, T.}, \& Kılıç, A. F. (2024). The effects of missing data handling methods on reliability coefficients: A Monte Carlo simulation study. \textit{Journal of Measurement and Evaluation in Education and Psychology}, \textit{15}(2), 166--182.\\
+{\small \href{https://doi.org/10.21031/epod.1485482}{\color{linkblue}[Paper]}}
+
+\vspace{10pt}
+{\color{headwhite}\bfseries\normalsize Preprints}
+\vspace{4pt}
+
+\me{Kaçak, T.}, \& Navarro Gonz\'alez, D. (2026). Does acquiescence bias distort measurement invariance across multiple groups? A Monte Carlo comparison of tree-based factor analytic methods. \textit{PsyArXiv}.\\
+{\small \href{https://doi.org/10.31234/osf.io/myk4s}{\color{linkblue}[Preprint]}}
+
+\vspace{10pt}
+{\color{headwhite}\bfseries\normalsize Book Chapters}
+\vspace{4pt}
+
+\pubnum{3} \me{Kaçak, T.} (2025). İlk okuma ve yazma \"o\u{g}retiminde \"ol\c{c}me ve de\u{g}erlendirme. In İ. Coşkun \& H. Kadıo\u{g}lu-Ateş (Eds.), \textit{2024 T\"urkiye Y\"uzyılı Maarif Modeli \"o\u{g}retim programına uygun ilk okuma yazma \"o\u{g}retimi} (pp. 247--274). Vizetek Yayıncılık.
+\vspace{6pt}
+
+\pubnum{2} \me{Kaçak, T.} (2025). JASP'ın kurulumu, veri girişi ve betimsel istatistikler (2nd ed.). In M. Acar-G\"uvendir \& A. F. Kılıç (Eds.), \textit{JASP ile istatistiksel analiz: Uygulamalı bir rehber} (pp. 1--31). Pegem Akademi.
+\vspace{6pt}
+
+\pubnum{1} \me{Kaçak, T.} (2024). JASP'ın kurulumu, veri girişi ve betimsel istatistikler. In M. Acar-G\"uvendir \& A. F. Kılıç (Eds.), \textit{JASP ile istatistiksel analiz: Uygulamalı bir rehber} (pp. 1--31). Pegem Akademi.
+
+\vspace{10pt}
+{\color{headwhite}\bfseries\normalsize Thesis}
+\vspace{4pt}
+
+\me{Kaçak, T.} (2024). \textit{Comparison of factor retention methods in exploratory factor analysis under various conditions} [MSc thesis, Hacettepe University]. \href{https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-9xjZUC9wqmxEgRujMCaa5DL9WAWPu1RCjUL04DR2bGg}{\color{linkblue}Y\"OK National Thesis Center}
+
+% ================= CONFERENCE PRESENTATIONS =================
+\cvsection{Conference Presentations}
+\begin{cvtable}
+\cvyearhead{2026}
+\cvrow{Aug 2026}{\me{Kaçak, T.}, G\"uvendir, E., \& Acar G\"uvendir, M. \textit{Modeling the interaction between person-level covariates and item complexity in creative thinking task performances in PISA 2022.} European Conference on Educational Research (ECER) 2026, Tampere, Finland (paper presentation).}
+\cvrow{Aug 2026}{\me{Kaçak, T.}, \& Eker, S. \textit{Working for pay and academic achievement: A cross-national meta-analysis of gender-moderated effects using PISA 2022 data.} ECER 2026, Tampere, Finland (paper presentation).}
+\cvrow{Jul 2026}{\me{Kaçak, T.}, \& G\"uler, G. \textit{Revisiting the dimensionality of the Rosenberg Self-Esteem Scale under careless responding.} International Meeting of the Psychometric Society (IMPS) 2026, Seoul, South Korea (oral presentation).}
+\cvrow{Jul 2026}{\me{Kaçak, T.} \textit{(Mis)modeling acquiescence bias in latent mediation models.} IMPS 2026, Seoul, South Korea (poster presentation).}
+\cvyearhead{2025}
+\cvrow{Apr 2025}{\me{Kaçak, T.}, Kılıç, A. F., \& Do\u{g}an, N. \textit{Comparison of factor retention methods: Is exploratory graph analysis appropriate for mixed-format data?} Annual Meeting of AERA, United States (virtual poster).}
+\cvrow{Oct 2025}{\me{Kaçak, T.}, \"Ozer \"Ozkan, Y., \& Acar G\"uvendir, M. \textit{The usage of sampling weights and plausible values in multilevel models: A tutorial with TIMSS 2023 T\"urkiye data.} XVI. International Balkan Education and Science Congress, Edirne, T\"urkiye (full paper).}
+\cvrow{Oct 2025}{\me{Kaçak, T.}, Acar G\"uvendir, M., \& \"Ozer \"Ozkan, Y. \textit{Unpacking item format effects in TIMSS 2023 mathematics: Evidence from Balkan countries using explanatory item response modeling.} XVI. International Balkan Education and Science Congress, Edirne, T\"urkiye (full paper).}
+\cvrow{Nov 2025}{Acar G\"uvendir, M., \"Ozer \"Ozkan, Y., \& \me{Kaçak, T.} \textit{Sınıfta teoriyle y\"uzleşmek: Yeni mezun \"o\u{g}retmenlerin \"ol\c{c}me ve de\u{g}erlendirme bilgilerini uygulama deneyimleri.} EDUCongress 2025, Antalya, T\"urkiye (full paper).}
+\cvyearhead{2024}
+\cvrow{Sep 2024}{\me{Kaçak, T.}, Kılıç, A. F., \& Acar G\"uvendir, M. \textit{Effects of cross-loadings on factor retention methods' performances in EFA with categorical variables.} 9th International Congress on Measurement and Evaluation in Education and Psychology, Eskişehir, T\"urkiye.}
+\cvrow{Sep 2024}{\me{Kaçak, T.}, \& Kılıç, A. F. \textit{To what extent do factor retention methods perform? An investigation on hierarchical structures.} 9th International Congress on Measurement and Evaluation in Education and Psychology, Eskişehir, T\"urkiye.}
+\cvrow{Sep 2024}{Kılıç, A. F., Acar G\"uvendir, M., G\"uler, G., Aktaş, M., \& \me{Kaçak, T.} \textit{\c{C}evrimi\c{c}i, y\"uz y\"uze, \"od\"ull\"u ve \"od\"uls\"uz uygulanan \"ol\c{c}ekler denk sonu\c{c}lar verir mi?} 9th International Congress on Measurement and Evaluation in Education and Psychology, Eskişehir, T\"urkiye.}
+\cvrow{Oct 2024}{Kılıç, A. F., \me{Kaçak, T.}, Acar G\"uvendir, M., \& G\"uler, G. \textit{Baskın maddeler fakt\"or sayısı belirleme y\"ontemlerinin performansını nasıl etkiler?} International Symposium on Measurement, Selection and Placement (\"OSYM), Ankara, T\"urkiye.}
+\cvrow{May 2024}{\me{Kaçak, T.}, \& Anıl, D. \textit{A\c{c}ımlayıcı fakt\"or analizinde fakt\"or sayısı belirleme y\"ontemlerinin \c{c}eşitli koşullar altında karşılaştırılması.} XI. International Eurasian Educational Research Congress, Kocaeli, T\"urkiye.}
+\cvrow{May 2024}{Ekici, G., \& \me{Kaçak, T.} \textit{The relationship between teacher stress and job satisfaction with the mediating role of teacher self-efficacy: International evidence from PISA 2022.} XI. International Eurasian Educational Research Congress, Kocaeli, T\"urkiye.}
+\cvrow{May 2024}{Avcı, E., \& \me{Kaçak, T.} \textit{Genel Afete Hazırlık İnanç \"Ol\c{c}e\u{g}i'nin DMF a\c{c}ısından incelenmesi.} 12th International Symposium on Social Studies Education, Edirne, T\"urkiye.}
+\cvyearhead{2023}
+\cvrow{Nov 2023}{\me{Kaçak, T.}, \& Kılıç, A. F. \textit{How do missing data imputation methods affect reliability coefficients?} 3rd International Trakya Scientific Research Congress, Edirne, T\"urkiye.}
+\cvrow{Oct 2023}{\me{Kaçak, T.}, \& Kılıç, A. F. \textit{Investigation of reliability coefficients with different conditions.} Academy of Scientific and Educational Studies (ASES), Balıkesir, T\"urkiye.}
+\end{cvtable}
+
+% ================= SOFTWARE & TEACHING =================
+\cvsection{Software \& Research Materials}
+\begin{cvtable}
+\cvrow{}{\me{Simulation code}: R scripts and reproducible materials from Monte Carlo studies on factor retention and reliability. \href{https://github.com/tkacak}{\color{linkblue}github.com/tkacak}}
+\end{cvtable}
+
+\cvsection{Teaching}
+\begin{cvtable}
+\cvrow{}{\me{Statistical Programming with R} (OLC733) \& \me{Psychometrics with R} (OLC731): Course notes and worked examples, published as R Markdown documents. \href{https://rpubs.com/tugaykacak}{\color{linkblue}rpubs.com/tugaykacak}}
+\end{cvtable}
+
+\end{document}
