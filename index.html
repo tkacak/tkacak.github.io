@@ -459,22 +459,19 @@ always welcome.</p>
 // Research-over-time streamgraph (D3 stack + wiggle offset, oversampled
 // for an organic curve; ground-truth values stay anchored at integer years).
 (function () {
+  // Colors are literal hex, not CSS custom properties: this script can run
+  // before a cached copy of style.css has picked up new tokens, and an
+  // undefined var() on the (inherited) color property would silently fall
+  // back to the inherited near-white ink, painting every band the same.
   var series = [
-    { key: "factor",  name: "Factor analytic framework", color: "var(--s-factor)",  textOn: "light", values: [3, 5, 5, 4.5] },
-    { key: "mixture", name: "Mixture modeling",           color: "var(--s-mixture)", textOn: "light", values: [0, 0, 0.3, 2.5] },
-    { key: "network", name: "Network psychometrics",      color: "var(--s-network)", textOn: "light", values: [0, 0.3, 0.8, 1.5] },
-    { key: "large",   name: "Large-scale assessment",     color: "var(--s-large)",   textOn: "dark",  values: [0, 1.5, 3, 4] }
+    { key: "factor",  name: "Factor analytic framework", color: "#4a90f0", textOn: "light", values: [3, 5, 5, 4.5] },
+    { key: "mixture", name: "Mixture modeling",           color: "#e8703a", textOn: "light", values: [0, 0, 0.3, 2.5] },
+    { key: "network", name: "Network psychometrics",      color: "#22b586", textOn: "light", values: [0, 0.3, 0.8, 1.5] },
+    { key: "large",   name: "Large-scale assessment",     color: "#e0a319", textOn: "dark",  values: [0, 1.5, 3, 4] }
   ];
+  var LINE_COLOR = "#333333";
+  var SOFT_COLOR = "#a6a6a6";
   var years = [2023, 2024, 2025, 2026];
-
-  function resolveColor(token) {
-    var probe = document.createElement("span");
-    probe.style.color = token;
-    document.body.appendChild(probe);
-    var rgb = getComputedStyle(probe).color;
-    probe.remove();
-    return rgb;
-  }
 
   function smoothstep(t) { return t * t * (3 - 2 * t); }
 
@@ -538,7 +535,7 @@ always welcome.</p>
       .attr("class", "stream-band")
       .attr("fill", function (d) {
         var s = series.find(function (s) { return s.key === d.key; });
-        return resolveColor(s.color);
+        return s.color;
       })
       .attr("d", area);
 
@@ -574,7 +571,7 @@ always welcome.</p>
     g.append("line")
       .attr("x1", 0).attr("x2", width)
       .attr("y1", height + 6).attr("y2", height + 6)
-      .attr("stroke", resolveColor("var(--line)"))
+      .attr("stroke", LINE_COLOR)
       .attr("stroke-width", 1);
 
     g.selectAll(".stream-tick")
@@ -585,12 +582,12 @@ always welcome.</p>
       .attr("y", height + 22)
       .attr("text-anchor", "middle")
       .attr("font-size", "11.5px")
-      .attr("fill", resolveColor("var(--soft)"))
+      .attr("fill", SOFT_COLOR)
       .text(function (d) { return d; });
 
     var crosshair = g.append("line")
       .attr("y1", -6).attr("y2", height + 6)
-      .attr("stroke", resolveColor("var(--soft)"))
+      .attr("stroke", SOFT_COLOR)
       .attr("stroke-width", 1)
       .style("opacity", 0)
       .style("pointer-events", "none");
@@ -608,7 +605,7 @@ always welcome.</p>
         r.className = "t-row";
         var key = document.createElement("span");
         key.className = "t-key";
-        key.style.background = resolveColor(s.color);
+        key.style.background = s.color;
         var name = document.createElement("span");
         name.className = "t-name";
         name.textContent = s.name;
@@ -653,7 +650,7 @@ always welcome.</p>
       item.className = "stream-legend-item";
       var key = document.createElement("span");
       key.className = "stream-legend-key";
-      key.style.background = resolveColor(s.color);
+      key.style.background = s.color;
       var label = document.createElement("span");
       label.textContent = s.name;
       item.appendChild(key); item.appendChild(label);
@@ -668,7 +665,7 @@ always welcome.</p>
       th.className = "key-cell";
       var dot = document.createElement("span");
       dot.className = "stream-key-dot";
-      dot.style.background = resolveColor(s.color);
+      dot.style.background = s.color;
       var label = document.createElement("span");
       label.textContent = s.name;
       th.appendChild(dot); th.appendChild(label);
