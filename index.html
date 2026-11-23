@@ -15,6 +15,7 @@
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/d3-7.9.0/d3.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -388,6 +389,31 @@ PISA, PIRLS, TIMSS and ICILS.</p>
 </div>
 <hr />
 </div>
+<div id="research-over-time" class="section level2">
+<h2>Research over time</h2>
+<p class="stream-intro">How these four lines have shifted in emphasis
+since my first conference talk in 2023, sized by how many papers, talks
+and manuscripts touch each theme per year — an approximate picture, not
+a tracked metric.</p>
+<div class="stream-card">
+<p class="stream-sub">Hover or tap a year for the breakdown · relative
+scale, not a literal count</p>
+<svg id="stream-chart" viewBox="0 0 820 380" role="img" aria-label="Stream graph of four research themes from 2023 to 2026"></svg>
+<div class="stream-legend" id="stream-legend"></div>
+</div>
+<div class="stream-toolbar">
+<button class="stream-toggle-btn" id="streamToggleTable" type="button" aria-expanded="false" aria-controls="stream-table">View as table</button>
+</div>
+<table id="stream-table" class="stream-table" hidden>
+<caption>Same data as the stream graph above, by year.</caption>
+<thead>
+<tr><th scope="col">Theme</th><th scope="col">2023</th><th scope="col">2024</th><th scope="col">2025</th><th scope="col">2026</th></tr>
+</thead>
+<tbody id="stream-table-body"></tbody>
+</table>
+<div id="stream-tooltip" role="status" aria-live="polite"></div>
+<hr />
+</div>
 <div id="news" class="section level2">
 <h2>News</h2>
 <ul>
@@ -428,6 +454,252 @@ always welcome.</p>
 
 
 </div>
+
+<script>
+// Research-over-time streamgraph (D3 stack + wiggle offset, oversampled
+// for an organic curve; ground-truth values stay anchored at integer years).
+(function () {
+  var series = [
+    { key: "factor",  name: "Factor analytic framework", color: "var(--s-factor)",  textOn: "light", values: [3, 5, 5, 4.5] },
+    { key: "mixture", name: "Mixture modeling",           color: "var(--s-mixture)", textOn: "light", values: [0, 0, 0.3, 2.5] },
+    { key: "network", name: "Network psychometrics",      color: "var(--s-network)", textOn: "light", values: [0, 0.3, 0.8, 1.5] },
+    { key: "large",   name: "Large-scale assessment",     color: "var(--s-large)",   textOn: "dark",  values: [0, 1.5, 3, 4] }
+  ];
+  var years = [2023, 2024, 2025, 2026];
+
+  function resolveColor(token) {
+    var probe = document.createElement("span");
+    probe.style.color = token;
+    document.body.appendChild(probe);
+    var rgb = getComputedStyle(probe).color;
+    probe.remove();
+    return rgb;
+  }
+
+  function smoothstep(t) { return t * t * (3 - 2 * t); }
+
+  var STEPS = 16;
+  var oversampledRows = [];
+  for (var yi = 0; yi < years.length - 1; yi++) {
+    var y0 = years[yi], y1 = years[yi + 1];
+    var count = yi === years.length - 2 ? STEPS + 1 : STEPS;
+    for (var s = 0; s < count; s++) {
+      var t = s / STEPS;
+      var yearPos = y0 + t * (y1 - y0);
+      var row = { year: yearPos };
+      series.forEach(function (ser) {
+        row[ser.key] = ser.values[yi] + smoothstep(t) * (ser.values[yi + 1] - ser.values[yi]);
+      });
+      oversampledRows.push(row);
+    }
+  }
+
+  var realRows = years.map(function (y, i) {
+    var row = { year: y };
+    series.forEach(function (s) { row[s.key] = s.values[i]; });
+    return row;
+  });
+
+  function renderStream() {
+    var svgEl = document.getElementById("stream-chart");
+    if (!svgEl || !window.d3) return;
+    svgEl.innerHTML = "";
+
+    var margin = { top: 16, right: 16, bottom: 30, left: 16 };
+    var totalWidth = 820, totalHeight = 380;
+    var width = totalWidth - margin.left - margin.right;
+    var height = totalHeight - margin.top - margin.bottom;
+
+    var svg = d3.select(svgEl);
+    var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var x = d3.scaleLinear().domain([years[0], years[years.length - 1]]).range([0, width]);
+
+    var stack = d3.stack()
+      .keys(series.map(function (s) { return s.key; }))
+      .offset(d3.stackOffsetWiggle)
+      .order(d3.stackOrderNone);
+
+    var layers = stack(oversampledRows);
+    var yExtent = d3.extent(layers.flat(2));
+    var y = d3.scaleLinear().domain(yExtent).range([height, 0]).nice();
+
+    var area = d3.area()
+      .x(function (d) { return x(d.data.year); })
+      .y0(function (d) { return y(d[0]); })
+      .y1(function (d) { return y(d[1]); })
+      .curve(d3.curveBasis);
+
+    var bandGroup = g.append("g");
+
+    bandGroup.selectAll(".stream-band")
+      .data(layers)
+      .join("path")
+      .attr("class", "stream-band")
+      .attr("fill", function (d) {
+        var s = series.find(function (s) { return s.key === d.key; });
+        return resolveColor(s.color);
+      })
+      .attr("d", area);
+
+    var labelFrac = 0.8;
+    var labelYear = years[0] + labelFrac * (years[years.length - 1] - years[0]);
+    var nearest = oversampledRows.reduce(function (a, b) {
+      return Math.abs(b.year - labelYear) < Math.abs(a.year - labelYear) ? b : a;
+    });
+    var nearestIdx = oversampledRows.indexOf(nearest);
+
+    g.selectAll(".stream-label")
+      .data(layers)
+      .join("text")
+      .attr("class", "stream-label")
+      .attr("x", x(nearest.year))
+      .attr("y", function (d) {
+        var d0 = d[nearestIdx][0], d1 = d[nearestIdx][1];
+        return y((d0 + d1) / 2) + 4;
+      })
+      .attr("text-anchor", "middle")
+      .attr("font-size", "12.5px")
+      .attr("font-weight", "600")
+      .attr("fill", function (d) {
+        var s = series.find(function (s) { return s.key === d.key; });
+        return s.textOn === "dark" ? "#14161a" : "#fbfbfa";
+      })
+      .text(function (d) {
+        var s = series.find(function (s) { return s.key === d.key; });
+        var thickness = d[nearestIdx][1] - d[nearestIdx][0];
+        return thickness > 0.35 ? s.name : "";
+      });
+
+    g.append("line")
+      .attr("x1", 0).attr("x2", width)
+      .attr("y1", height + 6).attr("y2", height + 6)
+      .attr("stroke", resolveColor("var(--line)"))
+      .attr("stroke-width", 1);
+
+    g.selectAll(".stream-tick")
+      .data(years)
+      .join("text")
+      .attr("class", "stream-tick")
+      .attr("x", function (d) { return x(d); })
+      .attr("y", height + 22)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "11.5px")
+      .attr("fill", resolveColor("var(--soft)"))
+      .text(function (d) { return d; });
+
+    var crosshair = g.append("line")
+      .attr("y1", -6).attr("y2", height + 6)
+      .attr("stroke", resolveColor("var(--soft)"))
+      .attr("stroke-width", 1)
+      .style("opacity", 0)
+      .style("pointer-events", "none");
+
+    var tooltip = document.getElementById("stream-tooltip");
+
+    function showTooltip(row, clientX, clientY) {
+      tooltip.innerHTML = "";
+      var yearEl = document.createElement("div");
+      yearEl.className = "t-year";
+      yearEl.textContent = row.year;
+      tooltip.appendChild(yearEl);
+      series.slice().reverse().forEach(function (s) {
+        var r = document.createElement("div");
+        r.className = "t-row";
+        var key = document.createElement("span");
+        key.className = "t-key";
+        key.style.background = resolveColor(s.color);
+        var name = document.createElement("span");
+        name.className = "t-name";
+        name.textContent = s.name;
+        var val = document.createElement("span");
+        val.className = "t-val";
+        val.textContent = row[s.key];
+        r.appendChild(key); r.appendChild(name); r.appendChild(val);
+        tooltip.appendChild(r);
+      });
+      var tw = tooltip.offsetWidth || 200;
+      var left = clientX + 16;
+      if (left + tw > window.innerWidth - 8) left = clientX - tw - 16;
+      tooltip.style.left = left + "px";
+      tooltip.style.top = Math.max(8, clientY - 76) + "px";
+      tooltip.style.opacity = "1";
+    }
+    function hideTooltip() {
+      tooltip.style.opacity = "0";
+      crosshair.style.opacity = 0;
+    }
+
+    g.append("rect")
+      .attr("fill", "transparent")
+      .attr("width", width)
+      .attr("height", height)
+      .on("pointermove", function (event) {
+        var mx = d3.pointer(event, g.node())[0];
+        var yearGuess = x.invert(mx);
+        var nearestYear = years.reduce(function (a, b) {
+          return Math.abs(b - yearGuess) < Math.abs(a - yearGuess) ? b : a;
+        });
+        var row = realRows.find(function (r) { return r.year === nearestYear; });
+        crosshair.attr("x1", x(nearestYear)).attr("x2", x(nearestYear)).style("opacity", 1);
+        showTooltip(row, event.clientX, event.clientY);
+      })
+      .on("pointerleave", hideTooltip);
+
+    var legend = document.getElementById("stream-legend");
+    legend.innerHTML = "";
+    series.forEach(function (s) {
+      var item = document.createElement("div");
+      item.className = "stream-legend-item";
+      var key = document.createElement("span");
+      key.className = "stream-legend-key";
+      key.style.background = resolveColor(s.color);
+      var label = document.createElement("span");
+      label.textContent = s.name;
+      item.appendChild(key); item.appendChild(label);
+      legend.appendChild(item);
+    });
+
+    var tbody = document.getElementById("stream-table-body");
+    tbody.innerHTML = "";
+    series.forEach(function (s) {
+      var tr = document.createElement("tr");
+      var th = document.createElement("td");
+      th.className = "key-cell";
+      var dot = document.createElement("span");
+      dot.className = "stream-key-dot";
+      dot.style.background = resolveColor(s.color);
+      var label = document.createElement("span");
+      label.textContent = s.name;
+      th.appendChild(dot); th.appendChild(label);
+      tr.appendChild(th);
+      s.values.forEach(function (v) {
+        var td = document.createElement("td");
+        td.textContent = v;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function wireToggle() {
+    var toggleBtn = document.getElementById("streamToggleTable");
+    var table = document.getElementById("stream-table");
+    if (!toggleBtn || !table) return;
+    toggleBtn.addEventListener("click", function () {
+      var isHidden = table.hidden;
+      table.hidden = !isHidden;
+      toggleBtn.setAttribute("aria-expanded", String(isHidden));
+      toggleBtn.textContent = isHidden ? "Hide table" : "View as table";
+    });
+  }
+
+  $(document).ready(function () {
+    renderStream();
+    wireToggle();
+  });
+})();
+</script>
 
 <script>
 
